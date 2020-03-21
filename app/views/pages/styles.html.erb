@@ -1,2 +1,86 @@
-<h1>Pages#styles</h1>
-<p>Find me in app/views/pages/styles.html.erb</p>
+<div class="container">
+    <h1>ui kit</h1>
+
+    <h2>colors</h2>
+
+    <div class="flexbox-container">
+        <div>
+            <div class="color-block green"></div>
+            <p>green</p>
+        </div>
+
+        <div>
+            <div class="color-block dark-green"></div>
+            <p>dark green</p>
+        </div>
+
+        <div>
+            <div class="color-block mustard"></div>
+            <p>mustard</p>
+        </div>
+
+        <div>
+            <div class="color-block dark-gray"></div>
+            <p>dark-gray</p>
+        </div>
+
+        <div>
+            <div class="color-block medium-gray"></div>
+            <p>medium-gray</p>
+        </div>
+
+        <div>
+            <div class="color-block light-gray"></div>
+            <p>light-gray</p>
+        </div>
+
+        <div>
+            <div class="color-block off-white"></div>
+            <p>off-white</p>
+        </div>
+    </div>
+
+    <h2>buttons</h2>
+
+    <div class="button-block">
+        <a href="#" class="button button-plain">call to action</a>
+    </div>
+
+    <div class="button-block">
+        <a href="#" class="button button-light">call to action</a>
+    </div>
+
+    <h2>cards</h2>
+
+    <div class="need-card">
+        <span class="need-tag">urgent</span>
+
+        <h4 class="need-author">Micheline</h4>
+
+        <p class="need-distance">à 5km de distance</p>
+
+        <a href="#" class="button button-light medium">voir sa liste d'épicerie</a>
+    </div>
+
+    <h2>inputs</h2>
+
+    <div class="form-group">
+        <label for="#input-test">moyen de contact :</label>
+        <input type="text" id="input-test" placeholder="micheline@gmail.com, 514 238 7827..." />
+    </div>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="check-1" />
+        <label for="#check-1">tomates - 4</label>
+    </div>
+
+    <div class="show-map-container close">
+        <p class="show-map-title" id="map-toggle">afficher sur la carte</p>
+        <div class="map-container">
+            <img src="https://source.unsplash.com/random" alt="" />
+        </div>
+    </div>
+</div>
+
+<%= javascript_pack_tag "map" %>
+<%= javascript_pack_tag "forms" %>

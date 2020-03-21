@@ -1,0 +1,10 @@
+.container {
+  width: 90vw;
+  margin: 24px auto 124px;
+}
+
+.flexbox-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
