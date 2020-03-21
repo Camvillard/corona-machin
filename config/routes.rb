@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   
   get 'pages/styles', to: "pages#styles"
 
-  get '/choices', to "pages#choices"
+  get '/choices', to: "pages#choices"
 
-  ressources :need do
-    ressources :list, only[:show, :edit, :update, :delete]
+  resources :need do
+    resources :list, only: [:show, :edit, :update, :delete]
   end
 end
