@@ -1,7 +1,44 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Cleaning database...'
+
+Need.destroy_all
+Type.destroy_all
+List.destroy_all
+Tag.destroy_all
+
+
+TYPES = ["grocery", "pharmacy", "talking", "other"]
+TAGS = ["urgent", "Peut Attendre", "non urgent"]
+STATUS = ["new", "in progress", "finished", "delivered"]
+MESSAGE = ["Please deliver at home thanks", "Can you call me every day at 8PM", "Can you pick up this list tonight"]
+
+TYPES.each do |type|
+  Type.create(name: type)
+end
+
+TAGS.each do |tag|
+  Tag.create(name: tag)
+end
+
+i = 1
+30.times do
+
+need = Need.new(
+  address: Faker::Address.full_address,
+  name: "list #{i}",
+  phone: Faker::PhoneNumber.cell_phone,
+  status: STATUS.sample,
+  message: MESSAGE.sample,
+)
+
+need.type = Type.all.sample
+need.tag = Tag.all.sample
+need.save!
+
+list = List.new
+list.need = need
+list.save!
+
+end
+puts 'DB created'
