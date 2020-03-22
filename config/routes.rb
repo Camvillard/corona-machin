@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
   get '/choices', to: "pages#choices"
 
-  resources :need do
-    resources :list, only: [:show, :update] do
-      resources :item, only: [:create]
+  resources :needs do
+    resources :lists, only: [:show, :update] do
+      resources :items, only: [:create]
     end
   end
 
-  resources :item, only: [:update, :delete]
+  resources :items, only: [:update, :delete]
 end
