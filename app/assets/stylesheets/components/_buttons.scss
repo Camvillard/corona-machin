@@ -6,8 +6,7 @@
 .button-plain {
   background: $green;
   color: $dark-gray;
-  padding: 8px 12px;
-  border-radius: $small-radius;
+  padding: 12px;
   &:hover {
     background: $dark-gray;
     color: white;
@@ -35,5 +34,6 @@
 
 .button-block {
   display: block;
-  margin: 24px 0;
+  margin: 16px 0;
+  text-align: center;
 }

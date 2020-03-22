@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container flexbox-container column j-end fullheight">
+  <div class="page help-page">
+    <div class="introduction">
+      <h3>bienvenue sur le site d'entraide</h3>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio accusamus
+        explicabo sint repellat consequuntur. Fuga recusandae laborum eius sint
+        velit quisquam praesentium ipsum architecto sunt, enim possimus
+        laboriosam tenetur hic.
+      </p>
+    </div>
+    <div class="help">
+      <%= link_to "j'ai besoin d'aide", choices_path(choice: "need"),
+      class:"button button-block button-plain" %>
+    </div>
+    <div class="help">
+      <%= link_to "je peux offrir mon aide", choices_path(choice: "offer"),
+      class:"button button-block button-plain" %>
+    </div>
+  </div>
+</div>
