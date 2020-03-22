@@ -1,14 +1,14 @@
-class CreateNeeds < ActiveRecord::Migration[6.0]
+class CreateDemands < ActiveRecord::Migration[6.0]
   def change
-    create_table :needs do |t|
-      t.string :address
+    create_table :demands do |t|
       t.string :name
       t.string :phone
       t.string :email
       t.string :status
       t.text :message
       t.references :tag, null: false, foreign_key: true
-      t.references :type, null: false, foreign_key: true
+      t.integer :need_id
+      t.string :need_type
 
       t.timestamps
     end
