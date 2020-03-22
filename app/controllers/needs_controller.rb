@@ -1,5 +1,5 @@
 class NeedsController < ApplicationController
-  before_action :set_need, only: %i[show update destroy]
+  before_action :set_need, only: %i[show update destroy create_item]
   
   def index
     @needs = Need.all
@@ -11,7 +11,7 @@ class NeedsController < ApplicationController
 
   def create
     @need = Need.new(need_params)
-    @list = List.new
+    @list = List.new(list_params)
     @need.list = @lists
     if @need.save
       redirect_to needs_path
@@ -20,12 +20,17 @@ class NeedsController < ApplicationController
     end
   end
 
+  def create_item
+    @list = @need.list
+    @item = Item.new(item_params)
+  end
+
   def update
     @need.update(need_params)
     redirect_to need_path(@need)
   end
 
-  def destroy
+  def delete
     @need.destroy
     redirect_to needs_path
   end
@@ -38,6 +43,14 @@ class NeedsController < ApplicationController
 
     def need_params
       params.require(:need).permit!
+    end
+
+    def list_params
+      params.require(:list).permit!
+    end
+
+    def item_params
+      params.require(:item).permit!
     end
   
 end
