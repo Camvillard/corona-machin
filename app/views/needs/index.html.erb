@@ -1,1 +1,5 @@
 <p>index works!</p>
+
+<% @needs.each do |need| %>
+<%= render "shared/card", need:need %>
+<% end %>

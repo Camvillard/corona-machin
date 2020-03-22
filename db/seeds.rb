@@ -26,7 +26,7 @@ i = 1
 
 need = Need.new(
   address: Faker::Address.full_address,
-  name: "list #{i}",
+  name: "need #{i}",
   phone: Faker::PhoneNumber.cell_phone,
   status: STATUS.sample,
   message: MESSAGE.sample,
@@ -35,6 +35,8 @@ need = Need.new(
 need.type = Type.all.sample
 need.tag = Tag.all.sample
 need.save!
+
+i+=1
 
 list = List.new
 list.need = need
