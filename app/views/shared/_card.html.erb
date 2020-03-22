@@ -1,9 +1,10 @@
 <div class="need-card">
   <span class="need-tag"><%= need.tag.name %></span>
-
-  <h4 class="need-author"><%= need.name %></h4>
-
+  <div class="need-card-title">
+    <h4 class="need-author"><%= need.title %></h4>
+    <p><%= need.name %></p>
+  </div>
   <p class="need-distance"> à 5km de distance</p>
 
-  <a href="#" class="button button-light medium">voir sa liste d'épicerie</a>
+  <span class="button button-light medium">voir sa liste d'épicerie</span>
 </div>

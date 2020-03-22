@@ -1,0 +1,2 @@
+class DemandsController < ApplicationController
+end
