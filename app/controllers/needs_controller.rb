@@ -1,6 +1,6 @@
 class NeedsController < ApplicationController
   before_action :set_need, only: %i[show update destroy create_item]
-  
+
   def index
     @needs = Need.all
   end
@@ -8,6 +8,13 @@ class NeedsController < ApplicationController
   def show
     @list = List.new
   end
+
+  def new
+    @need = Need.new
+    @list = List.new
+    @item = Item.new
+  end
+
 
   def create
     @need = Need.new(need_params)
@@ -43,5 +50,5 @@ class NeedsController < ApplicationController
 
     def need_params
       params.require(:need).permit!
-    end 
+    end
 end

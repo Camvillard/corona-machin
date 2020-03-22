@@ -7,6 +7,11 @@ class PagesController < ApplicationController
   end
 
   def choices
-    @breadcrumbs = []
+    if params[:choice] == "need"
+      step = "j'ai besoin d'aide"
+    else
+      step = "je peux offrir mon aide"
+    end
+    set_breadcrumbs(step)
   end
 end
