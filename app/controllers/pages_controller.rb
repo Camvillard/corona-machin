@@ -9,4 +9,8 @@ class PagesController < ApplicationController
   def choices
     @breadcrumbs = []
   end
+
+  def demands
+    @demands = Demand.all
+  end
 end

@@ -17,6 +17,14 @@
   border-radius: $medium-radius;
 }
 
+.need-card-title {
+  display: flex;
+  p {
+    padding-top: 3px;
+    padding-left: 15px;
+  }
+}
+
 .need-author {
   font-size: 1.8rem;
   margin-bottom: 4px;

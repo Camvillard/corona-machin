@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/choices', to: "pages#choices"
 
+  get'/demands', to: "pages#demands"
+
   resources :homework_demands
   resources :social_demands
   resources :other_demands
