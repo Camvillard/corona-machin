@@ -1,10 +1,13 @@
 .container {
   width: 90vw;
-  margin: 24px auto 124px;
+  margin: 0 auto;
+  padding: 24px 0;
 }
 
-.flexbox-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.fullheight {
+  height: 100vh;
+}
+
+.fullwidth {
+  width: 100vw;
 }
