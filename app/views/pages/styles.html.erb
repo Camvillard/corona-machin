@@ -89,15 +89,27 @@
       <img src="https://source.unsplash.com/random" alt="" />
     </div>
   </div>
+
+  <div class="marker-map">
+    <p class="tag urgent">urgent</p>
+    <div class="see-listing-list">
+      <p><span class="underline dark">voir la liste</span></p>
+      <%= render "shared/icons/eye.html.erb" %>
+    </div>
+  </div>
 </div>
 
 <div class="add-item-container">
-  <div class="add-item-input hide" id="add-item-input">
-    <input type="text" placeholder="ajouter un nouvel item" />
-    <button>ok</button>
+  <div class="add-item-input-container hide" id="add-item-input">
+    <input
+      type="text"
+      class="add-item-input"
+      placeholder="ajouter un nouvel item"
+    />
+    <input type="submit" value="ok" />
   </div>
-  <div class="add-item-toggle">
-    <p class="symbol" id="add-item-toggle">+</p>
+  <div class="add-item-toggle" id="add-item-toggle">
+    <p class="symbol">+</p>
     <p class="content" id="add-item-text">nouvel item</p>
   </div>
 </div>

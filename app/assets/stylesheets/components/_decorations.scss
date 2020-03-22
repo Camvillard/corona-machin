@@ -1,0 +1,10 @@
+.underline {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  &.dark {
+    border-color: $dark-gray;
+  }
+  &.green {
+    border-color: $green;
+  }
+}
