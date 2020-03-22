@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  quantity: 1
   list: one
 
 two:
   name: MyString
-  quantity: 1
   list: two

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NeedsControllerTest < ActionDispatch::IntegrationTest
+class ErrandDemandTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
