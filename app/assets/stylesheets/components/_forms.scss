@@ -9,17 +9,27 @@
     margin-bottom: 0.4em;
   }
 
-  input {
+  input,
+  textarea {
     border: none;
     width: 100%;
-    height: 3.2rem;
     background: $light-gray;
     padding-left: 4px;
   }
 
-  input:hover {
+  input {
+    height: 3.2rem;
   }
 
+  textarea {
+    min-height: 16vh;
+  }
+
+  input:hover,
+  textarea:hover {
+  }
+
+  textarea:hover,
   input:focus {
     outline: none;
     background: $dark-green;
