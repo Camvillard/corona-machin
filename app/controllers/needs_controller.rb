@@ -11,7 +11,7 @@ class NeedsController < ApplicationController
 
   def create
     @need = Need.new(need_params)
-    @list = List.new(list_params)
+    @list = List.new
     @need.list = @lists
     if @need.save
       redirect_to needs_path
@@ -22,7 +22,7 @@ class NeedsController < ApplicationController
 
   def create_item
     @list = @need.list
-    @item = Item.new(item_params)
+    @item = Item.new
   end
 
   def update
@@ -43,14 +43,5 @@ class NeedsController < ApplicationController
 
     def need_params
       params.require(:need).permit!
-    end
-
-    def list_params
-      params.require(:list).permit!
-    end
-
-    def item_params
-      params.require(:item).permit!
-    end
-  
+    end 
 end
