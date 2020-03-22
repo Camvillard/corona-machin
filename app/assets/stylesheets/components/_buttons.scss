@@ -1,0 +1,39 @@
+.button {
+  font-weight: 800;
+  transition: 0.3s;
+}
+
+.button-plain {
+  background: $green;
+  color: $dark-gray;
+  padding: 8px 12px;
+  border-radius: $small-radius;
+  &:hover {
+    background: $dark-gray;
+    color: white;
+  }
+}
+
+.button-light {
+  color: $dark-gray;
+  border-bottom: 3px solid $dark-gray;
+  padding-bottom: 4px;
+
+  &.medium {
+    font-size: 1.6rem;
+  }
+
+  &.small {
+    font-size: 1.4rem;
+  }
+
+  &:hover {
+    color: $green;
+    border-color: $green;
+  }
+}
+
+.button-block {
+  display: block;
+  margin: 24px 0;
+}

@@ -1,0 +1,73 @@
+// forms
+
+.form-group {
+  margin: 16px 0;
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4em;
+  }
+
+  input,
+  textarea {
+    border: none;
+    width: 100%;
+    background: $light-gray;
+    padding-left: 4px;
+  }
+
+  input {
+    height: 3.2rem;
+  }
+
+  textarea {
+    min-height: 16vh;
+  }
+
+  input:hover,
+  textarea:hover {
+    border: 1px solid $off-white;
+  }
+
+  textarea:hover,
+  input:focus {
+    outline: none;
+    background: $dark-green;
+    color: $off-white;
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  input {
+    -webkit-appearance: none;
+    border: 1.6px solid $dark-gray;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+
+  input:focus,
+  input:active {
+    outline: none;
+  }
+
+  input:checked {
+    outline: none;
+    border: 1px solid $green;
+    background: $green;
+  }
+
+  label.active-label {
+    color: $green;
+    text-decoration: line-through;
+  }
+}

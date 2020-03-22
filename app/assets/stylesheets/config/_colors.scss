@@ -1,0 +1,38 @@
+// variables for colors
+$dark-green: #29575a;
+$green: #7cc5a2;
+$mustard: #f4dc85;
+$dark-gray: #252523;
+$medium-gray: #646463;
+$gray: #9e9e9c;
+$light-gray: #f2f3f3;
+$off-white: #f8fcfa;
+$urgent-red: #ad042d;
+
+.color-block {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+
+  &.green {
+    background: $green;
+  }
+  &.dark-green {
+    background: $dark-green;
+  }
+  &.mustard {
+    background: $mustard;
+  }
+  &.dark-gray {
+    background: $dark-gray;
+  }
+  &.medium-gray {
+    background: $medium-gray;
+  }
+  &.light-gray {
+    background: $light-gray;
+  }
+  &.off-white {
+    background: $off-white;
+  }
+}
