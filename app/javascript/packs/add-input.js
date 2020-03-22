@@ -11,6 +11,3 @@ addItemToggle.addEventListener("click", () => {
 const replaceToggleText = () => {
   addItemToggle.innerHTML = "<<";
 };
-
-const test = () => {};
-const blabla = () => {};
