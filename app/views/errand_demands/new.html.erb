@@ -1,8 +1,6 @@
 <div class="container">
   <h1>ajouter une demande</h1>
 
-
-
   <div class="form-group">
     <label for="#title">nom de la demande :</label>
     <input
@@ -27,8 +25,35 @@
 
   <div class="form-group">
     <label for="#list">ma liste de courses :</label>
-    <% @list.items.each do |item| %> <%= item.name %> <% end %>
+    <div class="list-items-container">
+    </div>
   </div>
+
+</div>
+
+<div class="add-item-container">
+  <div class="add-item-input-container hide" id="add-item-input">
+    <input
+      type="text"
+      name="item"
+      class="add-item-input"
+      placeholder="ajouter un nouvel item"
+    />
+    <input
+      type="text"
+      name="item-quantity"
+      class="quantity-item-input"
+      placeholder="quantité"
+    />
+    <input type="submit" value="ok" id="submit-item-btn" />
+  </div>
+  <div class="add-item-toggle" id="add-item-toggle">
+    <p class="symbol">+</p>
+    <p class="content" id="add-item-text">nouvel item</p>
+  </div>
+</div>
+
+<div class="container">
 
   <div class="form-group">
     <label for="#contact-email">adresse courriel :</label>
@@ -65,7 +90,6 @@
     <textarea
       name="message"
       id="message"
-      placeholder="5333 avenue Casgrain, suite 201, Montréal, H2T 1A3"
       class="for-hidden-input">
     </textarea>
   </div>
@@ -94,25 +118,12 @@
     <input type="hidden" name="address" id="hidden-address" class="hidden-input">
     <input type="hidden" name="message" id="hidden-message" class="hidden-input">
     <input type="hidden" name="tag" id="hidden-tag" class="hidden-input">
+    <input type="hidden" name="item" id="hidden-item" class="hidden-item-input">
     <%= f.submit "envoyer ma demande" %>
   <% end %>
 
 </div>
 
-<div class="add-item-container">
-  <div class="add-item-input-container hide" id="add-item-input">
-    <input
-      type="text"
-      name="params[:item]"
-      class="add-item-input"
-      placeholder="ajouter un nouvel item"
-    />
-    <input type="submit" value="ok" />
-  </div>
-  <div class="add-item-toggle" id="add-item-toggle">
-    <p class="symbol">+</p>
-    <p class="content" id="add-item-text">nouvel item</p>
-  </div>
-</div>
+
 
 <%= javascript_pack_tag 'new-errand' %> <%= javascript_pack_tag "add-input" %>

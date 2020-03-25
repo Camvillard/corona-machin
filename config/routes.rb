@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'items/create'
   root to: "pages#home"
 
   get 'styles', to: "pages#styles"
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   resources :other_demands
 
   resources :errand_demands do
+    resources :items, only: [:create]
     resources :lists, only: [:show, :update] do
       resources :items, only: [:create]
     end
