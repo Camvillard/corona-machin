@@ -14,4 +14,5 @@ class PagesController < ApplicationController
   def demands
     @demands = Demand.all
   end
+
 end

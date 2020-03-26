@@ -19,9 +19,14 @@ class ErrandDemandsController < ApplicationController
       status: "pending",
       message: params["message"],
       need: @errand,
+      tag: Tag.find_by(name: params["tag"])
     )
     convertItemsList(params["item"], @errand)
-    raise
+    if @need.save!
+      redirect_to success_path(location: "new errand item")
+    else
+      render :new
+    end
   end
 
   private

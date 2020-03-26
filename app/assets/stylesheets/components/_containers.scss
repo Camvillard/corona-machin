@@ -1,7 +1,17 @@
+.page-wrapper {
+  margin-bottom: 32px;
+}
+
 .container {
   width: 90vw;
   margin: 0 auto;
   padding: 24px 0;
+  &.no-padding-top {
+    padding-top: 0;
+  }
+  &.no-padding-bottom {
+    padding-bottom: 0;
+  }
 }
 
 .fullheight {

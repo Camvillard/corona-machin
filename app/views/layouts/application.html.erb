@@ -17,12 +17,13 @@
   </head>
 
   <body>
+    <%= render "shared/logo" %>
     <% if @breadcrumbs %>
       <%= render 'shared/breadcrumb.html.erb', breadcrumbs: @breadcrumbs %>
     <% end %>
 
     <%= yield %>
 
-    <%= render "shared/footer.html.erb" %>
+    <%= render "shared/footer.html.erb" unless params[:action] === "success_page" %>
   </body>
 </html>

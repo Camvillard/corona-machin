@@ -1,7 +1,7 @@
 // items
 .add-item-toggle {
   color: $off-white;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-left: 0;
   display: flex;
   align-items: center;
@@ -12,8 +12,10 @@
     align-items: center;
     justify-content: center;
     background: $dark-green;
-    width: 32px;
-    height: 32px;
+    font-size: 2rem;
+    padding-bottom: 2px;
+    width: 34px;
+    height: 34px;
     margin: 0;
   }
 
@@ -27,11 +29,6 @@
 
 .add-item-toggle.open {
   display: none;
-  // justify-content: flex-end;
-  // background: $dark-green;
-  // .content {
-  // display: none;
-  // }
 }
 
 .add-item-container {
@@ -51,33 +48,54 @@
   background: $dark-green;
   border: none;
   color: $off-white;
-  height: 32px;
+  height: 34px;
 
   input[type="submit"] {
     color: $off-white;
     font-size: 1.6rem;
+    border: 1px solid $off-white;
+    background: none;
   }
 }
 
-.add-item-input {
-  background: $dark-green;
-  border: none;
-  width: 100%;
-
-  &::placeholder {
-    color: $off-white;
-  }
-}
-.add-item-input:focus {
-  outline: none;
+.add-item-input,
+.quantity-item-input {
   background: $dark-green;
   color: $off-white;
+  border: none;
+  border-bottom: 1px solid $off-white;
+  margin-right: 4vw;
 
   &::placeholder {
     color: $gray;
   }
 }
 
+.add-item-input {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.quantity-item-input {
+  flex-shrink: 1;
+  width: 20%;
+  min-width: 80px;
+}
+.add-item-input:focus,
+.quantity-item-input:focus {
+  outline: none;
+  background: $dark-green;
+  color: $off-white;
+
+}
+
 .hide {
   display: none;
+}
+
+.list-items-container {
+  padding-left: 12px;
+  p {
+    margin: 0.4em 0;
+  }
 }

@@ -4,6 +4,7 @@
 }
 
 .button-plain {
+  border: none;
   background: $green;
   color: $dark-gray;
   padding: 12px;
@@ -30,6 +31,10 @@
     color: $green;
     border-color: $green;
   }
+}
+
+.button-fullwidth {
+  width: 100%;
 }
 
 .button-block {

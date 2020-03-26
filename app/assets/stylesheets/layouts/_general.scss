@@ -14,6 +14,7 @@ body {
   font-family: $body-font;
   font-size: 1.4rem;
   color: $dark-gray;
+  font-weight: 300;
 }
 
 h1,
@@ -38,6 +39,7 @@ img {
 ::placeholder {
   font-size: 1.4rem;
   color: #d9d8d8;
+  font-weight: 300;
 }
 
 label,
@@ -45,4 +47,5 @@ input,
 textarea {
   font-family: $body-font;
   font-size: 1.4rem;
+  font-weight: 300;
 }

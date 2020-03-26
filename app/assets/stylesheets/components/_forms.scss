@@ -3,6 +3,11 @@
 .form-group {
   margin: 16px 0;
 
+  .input-tip {
+    font-size: 1.1rem;
+    margin-top: 0;
+  }
+
   label {
     display: block;
     font-weight: 600;
@@ -40,6 +45,22 @@
       color: $light-gray;
     }
   }
+}
+
+.select-container {
+  -webkit-appearance: none;
+  border: none;
+  width: 100%;
+  border-radius: 0;
+  padding: 4px;
+  height: 32px;
+  font-size: 1.4rem;
+  font-family: $body-font;
+  background: $light-gray;;
+}
+
+.select-container:focus {
+  outline: none;
 }
 
 .checkbox-group {

@@ -1,129 +1,132 @@
-<div class="container">
-  <h1>ajouter une demande</h1>
+<div class="page-wrapper">
+  <div class="container no-padding-bottom">
+    <h1 class="page-title dark">ajouter une demande</h1>
 
-  <div class="form-group">
-    <label for="#title">nom de la demande :</label>
-    <input
-      name="title"
-      class="for-hidden-input"
-      type="text"
-      placeholder="besoin d'aide pour acheter du beurre de peanut !"
-      id="title"
-    />
+    <div class="form-group">
+      <label for="#title">nom de la demande :</label>
+      <input
+        name="title"
+        class="for-hidden-input"
+        type="text"
+        placeholder="besoin d'aide pour acheter du beurre de peanut !"
+        id="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="#name">votre nom, prénom, surnom :</label>
+      <input
+        name="name"
+        class="for-hidden-input"
+        type="text"
+        placeholder="micheline, jean-jacques..."
+        id="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="#list">ma liste de courses :</label>
+      <div class="list-items-container">
+      </div>
+    </div>
+
   </div>
 
-  <div class="form-group">
-    <label for="#name">votre nom, prénom, surnom :</label>
-    <input
-      name="name"
-      class="for-hidden-input"
-      type="text"
-      placeholder="micheline, jean-jacques..."
-      id="name"
-    />
-  </div>
-
-  <div class="form-group">
-    <label for="#list">ma liste de courses :</label>
-    <div class="list-items-container">
+  <div class="add-item-container">
+    <div class="add-item-input-container hide" id="add-item-input">
+      <input
+        type="text"
+        name="item"
+        class="add-item-input"
+        placeholder="nouvel item"
+      />
+      <input
+        type="text"
+        name="item-quantity"
+        class="quantity-item-input"
+        placeholder="quantité"
+      />
+      <input type="submit" value="ok" id="submit-item-btn" />
+    </div>
+    <div class="add-item-toggle" id="add-item-toggle">
+      <p class="symbol">+</p>
+      <p class="content" id="add-item-text">nouvel item</p>
     </div>
   </div>
 
+  <div class="container no-padding-top">
+
+    <div class="form-group">
+      <label for="#contact-email">adresse courriel :</label>
+      <input
+        class="for-hidden-input"
+        type="text"
+        placeholder="adresse courriel ou numéro de téléphone"
+        id="contact-email"
+        name="email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="#contact-phone">en bonus, un numéro de téléphone :</label>
+      <input
+        class="for-hidden-input"
+        type="text"
+        placeholder="adresse courriel ou numéro de téléphone"
+        name="phone"
+        id="contact-phone"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="#address">adresse ou déposer le tout :</label>
+      <p class="input-tip">(seul le code postal sera publiquement indiqué)</p>
+      <input
+        name="address"
+        class="for-hidden-input"
+        type="text"
+        placeholder="5333 avenue Casgrain, suite 201, Montréal, H2T 1A3"
+        id="address"
+      />
+    </div>
+    <div class="form-group">
+      <label for="#message">au besoin, vous pouvez ajouter un message :</label>
+      <textarea
+        name="message"
+        id="message"
+        class="for-hidden-input">
+      </textarea>
+    </div>
+
+
+    <div class="form-group">
+      <label for="#tag">j'en ai besoin :</label>
+      <select
+        name="tag"
+        id="tag"
+        class="for-hidden-input select-container"
+      >
+        <%= Tag.all.each do |tag| %>
+          <option value="<%= tag.name %>">
+            <%= tag.name %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+
+    <%= simple_form_for @errand do |f| %>
+      <input type="hidden" name="title" id="hidden-title" class="hidden-input">
+      <input type="hidden" name="name" id="hidden-name" class="hidden-input">
+      <input type="hidden" name="email" id="hidden-email" class="hidden-input">
+      <input type="hidden" name="phone" id="hidden-phone" class="hidden-input">
+      <input type="hidden" name="address" id="hidden-address" class="hidden-input">
+      <input type="hidden" name="message" id="hidden-message" class="hidden-input">
+      <input type="hidden" name="tag" id="hidden-tag" class="hidden-input">
+      <input type="hidden" name="item" id="hidden-item" class="hidden-item-input">
+      <%= f.submit "envoyer ma demande", class: "button button-plain button-fullwidth" %>
+    <% end %>
+  </div>
 </div>
-
-<div class="add-item-container">
-  <div class="add-item-input-container hide" id="add-item-input">
-    <input
-      type="text"
-      name="item"
-      class="add-item-input"
-      placeholder="ajouter un nouvel item"
-    />
-    <input
-      type="text"
-      name="item-quantity"
-      class="quantity-item-input"
-      placeholder="quantité"
-    />
-    <input type="submit" value="ok" id="submit-item-btn" />
-  </div>
-  <div class="add-item-toggle" id="add-item-toggle">
-    <p class="symbol">+</p>
-    <p class="content" id="add-item-text">nouvel item</p>
-  </div>
-</div>
-
-<div class="container">
-
-  <div class="form-group">
-    <label for="#contact-email">adresse courriel :</label>
-    <input
-      class="for-hidden-input"
-      type="text"
-      placeholder="adresse courriel ou numéro de téléphone"
-      id="contact-email"
-      name="email"
-    />
-    <label for="#contact-phone">ou numéro de téléphone :</label>
-    <input
-      class="for-hidden-input"
-      type="text"
-      placeholder="adresse courriel ou numéro de téléphone"
-      name="phone"
-      id="contact-phone"
-    />
-  </div>
-
-  <div class="form-group">
-    <label for="#address">adresse ou déposer le tout :</label>
-    <p class="input-tip">(seule la zone géographique sera publiquement indiquée)</p>
-    <input
-      name="address"
-      class="for-hidden-input"
-      type="text"
-      placeholder="5333 avenue Casgrain, suite 201, Montréal, H2T 1A3"
-      id="address"
-    />
-  </div>
-  <div class="form-group">
-    <label for="#message">au besoin, vous pouvez ajouter un message :</label>
-    <textarea
-      name="message"
-      id="message"
-      class="for-hidden-input">
-    </textarea>
-  </div>
-
-
-  <div class="form-group">
-    <label for="#tag">j'en ai besoin :</label>
-    <select
-      name="tag"
-      id="tag"
-      class="for-hidden-input"
-    >
-      <%= Tag.all.each do |tag| %>
-        <option value="<%= tag.name %>">
-          <%= tag.name %>
-        </option>
-      <% end %>
-    </select>
-  </div>
-
-  <%= simple_form_for @errand do |f| %>
-    <input type="hidden" name="title" id="hidden-title" class="hidden-input">
-    <input type="hidden" name="name" id="hidden-name" class="hidden-input">
-    <input type="hidden" name="email" id="hidden-email" class="hidden-input">
-    <input type="hidden" name="phone" id="hidden-phone" class="hidden-input">
-    <input type="hidden" name="address" id="hidden-address" class="hidden-input">
-    <input type="hidden" name="message" id="hidden-message" class="hidden-input">
-    <input type="hidden" name="tag" id="hidden-tag" class="hidden-input">
-    <input type="hidden" name="item" id="hidden-item" class="hidden-item-input">
-    <%= f.submit "envoyer ma demande" %>
-  <% end %>
-
-</div>
-
 
 
 <%= javascript_pack_tag 'new-errand' %> <%= javascript_pack_tag "add-input" %>
