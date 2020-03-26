@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Corona</title>
+    <title>les uns les autres</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,12 +17,13 @@
   </head>
 
   <body>
+    <%= render "shared/logo" %>
     <% if @breadcrumbs %>
       <%= render 'shared/breadcrumb.html.erb', breadcrumbs: @breadcrumbs %>
     <% end %>
 
     <%= yield %>
 
-    <%= render "shared/footer.html.erb" %>
+    <%= render "shared/footer.html.erb" unless params[:action] === "success_page" %>
   </body>
 </html>

@@ -12,7 +12,7 @@ List.destroy_all
 Tag.destroy_all
 
 
-TAGS = ["urgent", "Peut Attendre", "non urgent"]
+TAGS = ["urgent", "peut encore attendre un peu", "non urgent"]
 STATUS = ["new", "in progress", "finished", "delivered"]
 MESSAGE = ["Please deliver at home thanks", "Can you call me every day at 8PM", "Can you pick up this list tonight"]
 RECURRENCE = ["ponctuel", "quotidien", "hebdomadaire"]

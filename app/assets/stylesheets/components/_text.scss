@@ -1,0 +1,9 @@
+.page-title {
+  margin-bottom: 1em;
+  &.dark {
+    color: $dark-green;
+  }
+  &.light {
+    color: $green;
+  }
+}
