@@ -8,7 +8,7 @@
         name="title"
         class="for-hidden-input"
         type="text"
-        placeholder="besoin d'aide pour acheter du beurre de peanut !"
+        placeholder="je ne comprends pas les intégrales"
         id="title"
       />
     </div>
@@ -19,42 +19,10 @@
         name="name"
         class="for-hidden-input"
         type="text"
-        placeholder="micheline, jean-jacques..."
+        placeholder="kevin, marie"
         id="name"
       />
     </div>
-
-    <div class="form-group">
-      <label for="#list">ma liste de courses :</label>
-      <div class="list-items-container">
-      </div>
-    </div>
-
-  </div>
-
-  <div class="add-item-container">
-    <div class="add-item-input-container hide" id="add-item-input">
-      <input
-        type="text"
-        name="item"
-        class="add-item-input"
-        placeholder="nouvel item"
-      />
-      <input
-        type="text"
-        name="item-quantity"
-        class="quantity-item-input"
-        placeholder="quantité"
-      />
-      <input type="submit" value="ok" id="submit-item-btn" />
-    </div>
-    <div class="add-item-toggle" id="add-item-toggle">
-      <p class="symbol">+</p>
-      <p class="content" id="add-item-text">nouvel item</p>
-    </div>
-  </div>
-
-  <div class="container no-padding-top">
 
     <div class="form-group">
       <label for="#contact-email">adresse courriel :</label>
@@ -79,18 +47,7 @@
     </div>
 
     <div class="form-group">
-      <label for="#address">adresse ou déposer le tout :</label>
-      <p class="input-tip">(seul le code postal sera publiquement indiqué)</p>
-      <input
-        name="address"
-        class="for-hidden-input"
-        type="text"
-        placeholder="5333 avenue Casgrain, suite 201, Montréal, H2T 1A3"
-        id="address"
-      />
-    </div>
-    <div class="form-group">
-      <label for="#message">au besoin, vous pouvez ajouter un message :</label>
+      <label for="#message">message :</label>
       <textarea
         name="message"
         id="message"
@@ -100,13 +57,28 @@
 
 
     <div class="form-group">
+      <label for="#matiere">matière concernée :</label>
+      <select
+        name="matiere"
+        id="matiere"
+        class="for-hidden-input select-container"
+      >
+        <% HomeworkDemand::MATIERE.each do |matiere| %>
+          <option value="<%= matiere %>">
+            <%= matiere %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="form-group">
       <label for="#tag">j'en ai besoin :</label>
       <select
         name="tag"
         id="tag"
         class="for-hidden-input select-container"
       >
-        <%= Tag.all.each do |tag| %>
+        <% Tag.all.each do |tag| %>
           <option value="<%= tag.name %>">
             <%= tag.name %>
           </option>
@@ -114,15 +86,30 @@
       </select>
     </div>
 
-    <%= simple_form_for @errand do |f| %>
+    <div class="form-group">
+      <label for="#recurrence">récurrence de la demande :</label>
+      <select
+        name="recurrence"
+        id="recurrence"
+        class="for-hidden-input select-container"
+      >
+        <% HomeworkDemand::RECURRENCE.each do |recurrence| %>
+          <option value="<%= recurrence %>">
+            <%= recurrence %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+
+    <%= simple_form_for @homework do |f| %>
       <input type="hidden" name="title" id="hidden-title" class="hidden-input">
       <input type="hidden" name="name" id="hidden-name" class="hidden-input">
       <input type="hidden" name="email" id="hidden-email" class="hidden-input">
       <input type="hidden" name="phone" id="hidden-phone" class="hidden-input">
-      <input type="hidden" name="address" id="hidden-address" class="hidden-input">
       <input type="hidden" name="message" id="hidden-message" class="hidden-input">
-      <input type="hidden" name="tag" id="hidden-tag" class="hidden-input">
-      <input type="hidden" name="item" id="hidden-item" class="hidden-item-input">
+      <input type="hidden" name="tag" id="hidden-tag" class="hidden-input" value="urgent">
+      <input type="hidden" name="matiere" id="hidden-matiere" class="hidden-input" value="sciences">
+      <input type="hidden" name="recurrence" id="hidden-recurrence" class="hidden-input" value="ponctuel">
       <%= f.submit "envoyer ma demande", class: "button button-plain button-fullwidth" %>
     <% end %>
   </div>
@@ -130,5 +117,3 @@
 
 
 <%= javascript_pack_tag 'new-demands' %>
-<%= javascript_pack_tag 'new-errand' %>
-<%= javascript_pack_tag "add-input" %>

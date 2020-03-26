@@ -7,4 +7,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def create_generic_demand(need)
+    Demand.new(
+      title: params["title"],
+      name: params["name"],
+      phone: params["phone"],
+      email: params["email"],
+      status: "pending",
+      message: params["message"],
+      need: need,
+      tag: Tag.find_by(name: params["tag"])
+    )
+  end
+
 end
