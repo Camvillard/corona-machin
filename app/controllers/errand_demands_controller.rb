@@ -11,19 +11,10 @@ class ErrandDemandsController < ApplicationController
       address: params[:address]
     )
     @errand.update(list: List.new)
-    @need = Demand.new(
-      title: params["title"],
-      name: params["name"],
-      phone: params["phone"],
-      email: params["email"],
-      status: "pending",
-      message: params["message"],
-      need: @errand,
-      tag: Tag.find_by(name: params["tag"])
-    )
+    @need = create_generic_demand(@errand)
     convertItemsList(params["item"], @errand)
     if @need.save!
-      redirect_to success_path(location: "new errand item")
+      redirect_to success_path(location: "errand")
     else
       render :new
     end
