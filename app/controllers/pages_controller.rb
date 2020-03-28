@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   end
 
   def choices
-    @breadcrumbs = []
+    step = "j'ai besoin d'aide"
+    set_breadcrumbs(step)
   end
 end

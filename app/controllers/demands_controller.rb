@@ -24,5 +24,7 @@ class DemandsController < ApplicationController
     #   List.where(errand_demand_id: errand_demand_id)
     # end
 
-      
+  def success_page
+
+  end
 end
