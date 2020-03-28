@@ -2,7 +2,8 @@ class DemandsController < ApplicationController
   before_action :find_demand, only: %i[show]
   
   def index
-    if params["query"] === "all"
+    @active = params[:query] ? params["query"] : "all"
+    if params["query"] == "all" || params[:query].nil?
       @demands = Demand.all
       # @demands = Demand.where(need_type: "ErrandDemand")
     else
