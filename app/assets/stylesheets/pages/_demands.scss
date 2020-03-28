@@ -1,3 +1,7 @@
-.flexbox-container {
-  margin-bottom: 15px;
+.sort-nav-bar {
+  color: $gray;
+  .option-selected{
+    color: $dark-gray;
+    text-decoration: underline;
+  }
 }
