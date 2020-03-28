@@ -1,21 +1,20 @@
 <div class="page-wrapper">
   <div class="sort-nav-bar container flexbox-container j-around">
-    <div 
-      class=" option option-all option-selected">
-        tout voir
-      </div>
-    <div 
-      class="option option-errand-demand">
-        course
-      </div>
-    <div
-      class="option option-homework">
-        aide aux devoirs
-      </div>
-    <div
-      class="option option-homework">
-        autre
-      </div>
+    <div class=" option option-all option-selected">
+        <%= link_to "tout voir", demands_path(query: "all") %>  
+    </div>
+    <div class="option option-errand-demand">
+      <%= link_to "course", demands_path(query: "ErrandDemand") %>
+    </div>
+    <div class="option option-homework">
+      <%= link_to "aide aux devoirs", demands_path(query: "HomeworkDemand") %>
+    </div>
+    <div class="option option-social">
+      <%= link_to "social", demands_path(query: "SocialDemand") %>
+    </div>
+    <div class="option option-other">
+      <%= link_to "other", demands_path(query: "OtherDemand") %>
+    </div>
   </div>
   <div class="container demands-cards">
     <% @demands.each do |demand| %>

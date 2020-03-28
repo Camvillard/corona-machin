@@ -2,8 +2,13 @@ class DemandsController < ApplicationController
   before_action :find_demand, only: %i[show]
   
   def index
-    @demands = Demand.all
-  end
+    if params["query"] === "all"
+      @demands = Demand.all
+      # @demands = Demand.where(need_type: "ErrandDemand")
+    else
+      @demands = Demand.where(need_type: params["query"])
+    end
+end
 
   def show
     if @demand.need_type === "ErrandDemand"
