@@ -1,1 +1,15 @@
-<p>show page works</p>
+<span class="need-tag"><%= @demand.tag.name %></span>
+<h4 class="demand-show-title">
+  <%= @demand.title %>
+</h4>
+<div class="demand-show-infos">
+  <p><%= @demand.name %></p>
+  <p>phone: <%= @demand.phone %></p>
+  <p>email: <%= @demand.email %></p>
+  <p>status: <%= @demand.status %></p>
+</div>
+<p>message: <%= @demand.message %></p>
+
+<% if @demand.need_type === "ErrandDemand"%>
+  <%=  @demand.need_type%>
+<% end %>

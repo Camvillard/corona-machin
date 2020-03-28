@@ -6,6 +6,12 @@ class DemandsController < ApplicationController
   end
 
   def show
+    # find list
+    # List.where(errand_demand_id: 20)
+
+    # Find associated items
+    # Item.where(list_id: 1)
+
   end
 
   private
@@ -13,4 +19,10 @@ class DemandsController < ApplicationController
     def find_demand
       @demand = Demand.find(params[:id])
     end
+
+    # def find_list(errand_demand_id)
+    #   List.where(errand_demand_id: errand_demand_id)
+    # end
+
+      
 end
