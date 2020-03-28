@@ -6,9 +6,8 @@ class DemandsController < ApplicationController
   end
 
   def show
-    Demand.find(20).need_type === "ErrandDemand"
     if @demand.need_type === "ErrandDemand"
-      @list = find_list(@demand)
+      @list = @demand.need.list
       @items = @list.items
     end
   end
@@ -21,12 +20,5 @@ class DemandsController < ApplicationController
 
     def find_demand
       @demand = Demand.find(params[:id])
-    end
-
-    def find_list(demand)
-      Demand
-        .find(demand.id)
-        .need
-        .list
     end
 end
