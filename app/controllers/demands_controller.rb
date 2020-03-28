@@ -8,9 +8,14 @@ class DemandsController < ApplicationController
   def show
     # find list
     # List.where(errand_demand_id: 20)
+    Demand.find(20).need_type === "ErrandDemand"
+    if @demand.need_type === "ErrandDemand"
+      @list = find_list(@demand)
+      @items = @list.items
+    end
+  end
 
-    # Find associated items
-    # Item.where(list_id: 1)
+  def success_page
 
   end
 
@@ -20,11 +25,12 @@ class DemandsController < ApplicationController
       @demand = Demand.find(params[:id])
     end
 
-    # def find_list(errand_demand_id)
-    #   List.where(errand_demand_id: errand_demand_id)
-    # end
+    def find_list(demand)
+      Demand
+        .find(demand.id)
+        .need
+        .list
+    end
 
-  def success_page
-
-  end
+   
 end
