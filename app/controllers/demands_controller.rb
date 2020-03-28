@@ -6,8 +6,6 @@ class DemandsController < ApplicationController
   end
 
   def show
-    # find list
-    # List.where(errand_demand_id: 20)
     Demand.find(20).need_type === "ErrandDemand"
     if @demand.need_type === "ErrandDemand"
       @list = find_list(@demand)
@@ -31,6 +29,4 @@ class DemandsController < ApplicationController
         .need
         .list
     end
-
-   
 end

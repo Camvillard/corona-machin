@@ -1,14 +1,16 @@
-<div class="container">
-  <% @demands.each do |demand| %>
-    <%= link_to "#" do %>
-      <%= render "shared/card", need: demand %>
+<div class="page-wrapper">
+  <div class="container">
+    <% @demands.each do |demand| %>
+      <%= link_to demand_path(demand)  do %>
+        <%= render "shared/card", need: demand %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-<div class="show-map-container close">
-  <p class="show-map-title" id="map-toggle">afficher sur la carte</p>
-  <div class="map-container">
-    <img src="https://source.unsplash.com/random" alt="" />
   </div>
-</div>
+  <div class="show-map-container close">
+    <p class="show-map-title" id="map-toggle">afficher sur la carte</p>
+    <div class="map-container">
+      <img src="https://source.unsplash.com/random" alt="" />
+    </div>
+  </div>
+  </div>
 <%= javascript_pack_tag "map" %> 
