@@ -4,7 +4,7 @@
     <div class="icon-need-type">
       <%= render "shared/need-icon.html.erb", need: need %>
     </div>
-    <p class="need-card-demander"><%= need.name %></p>
+    <p class="need-card-demander"><%= need.name[0..15] %></p>
     <span class="need-tag"><%= need.tag.name %></span>
 </div>
   
