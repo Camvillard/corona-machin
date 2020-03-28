@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-  <div class="container">
+  <div class="container demands-cards">
     <% @demands.each do |demand| %>
       <%= link_to demand_path(demand)  do %>
         <%= render "shared/card", need: demand %>

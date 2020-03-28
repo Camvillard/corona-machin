@@ -1,11 +1,17 @@
 <div class="need-card">
-  <span class="need-tag"><%= need.tag.name %></span>
-  <div class="need-card-title">
-    <h4 class="need-author"><%= need.title %></h4>
-    <p><%= need.name %></p>
-  </div>
+  
+  <div class="need-card-title flexbox-container">  
+    <div class="icon-need-type">
+      <%= render "shared/need-icon.html.erb", need: need %>
+    </div>
+    <p class="need-card-demander"><%= need.name %></p>
+    <span class="need-tag"><%= need.tag.name %></span>
+</div>
+  
+  
+  <h4 class="need-author"><%= need.title %></h4>
   <p class="need-distance"> à 5km de distance</p>
-  <% if need.need_type === "ErrandDemand" %>
-    <span class="button button-light medium">voir sa liste d'épicerie</span>
-  <% end %>
+  <div class="flexbox-container j-end ">
+    <span class="button button-light medium ">voir sa demande</span>
+  </div>
 </div>
