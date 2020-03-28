@@ -1,0 +1,48 @@
+<div class="page-wrapper">
+  <div class="container">
+    <div class="demand-show-status">
+      <div class="demand-show-tag">
+        <%= @demand.tag.name %>
+      </div>
+    </div>
+    <div class="need-card-title">
+      <h4 class="need-author">
+        <%= @demand.title %>
+      </h4>
+    </div>
+    <div class="demand-show-infos">
+      <h4 class="demand-show-demander">
+        <%= @demand.name %>
+      </h4>
+      <p >phone: <%= @demand.phone %></p>
+      <p>email: <%= @demand.email %></p>
+      <!-- <p>status: <%= @demand.status %></p> -->
+    </div>
+    <% if @list %>
+      <div class="demand-show-list-items">
+        <div class="need-card-title">
+          <h4 class="need-author">
+            List de course
+          </h4>
+        </div>
+        <% @items.each do |item| %>
+          <p><%= item.name %> - <%= item.detail %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="demand-show-message">
+      <div class="need-card-title">
+        <h4 class="need-author">
+          message
+        </h4>
+      </div>
+      <p><%= @demand.message %></p>
+    </div>
+  </div>
+</div>
+<div class="demand-show-button">
+  <%= link_to "je m'en occupe", '#', class: "button button-block button-plain" %>
+</div>
+
+
+

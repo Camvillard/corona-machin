@@ -5,16 +5,11 @@
   padding: 8px 8px 16px;
   border-radius: $small-radius;
   position: relative;
-}
-
-.need-tag {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: $dark-green;
-  color: $off-white;
-  padding: 4px 8px;
-  border-radius: $medium-radius;
+  .need-tag {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
 }
 
 .need-card-title {

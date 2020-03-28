@@ -1,0 +1,21 @@
+.demand-show-status {
+  display: flex;
+  justify-content: flex-end;
+  .demand-show-tag {
+    position: relative;
+    top: 8px;
+    right: 8px;
+    background: $dark-green;
+    color: $off-white;
+    padding: 4px 8px;
+    border-radius: $medium-radius;
+  }
+}
+
+
+.demand-show-infos {
+  color: $gray;
+}
+.demand-show-demander {
+  color: $medium-gray;
+}

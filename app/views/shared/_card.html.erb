@@ -5,6 +5,7 @@
     <p><%= need.name %></p>
   </div>
   <p class="need-distance"> à 5km de distance</p>
-
-  <span class="button button-light medium">voir sa liste d'épicerie</span>
+  <% if need.need_type === "ErrandDemand" %>
+    <span class="button button-light medium">voir sa liste d'épicerie</span>
+  <% end %>
 </div>

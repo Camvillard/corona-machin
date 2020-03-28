@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'styles', to: "pages#styles"
   get 'pages/styles', to: "pages#styles"
   get '/choices', to: "pages#choices"
+
+  resources :demands
   get'/demands', to: "pages#demands"
   get'/success', to: "demands#success_page", as: :success
 
