@@ -1,5 +1,5 @@
 class DemandsController < ApplicationController
-  before_action :find_demand, only: %i[show]
+  before_action :find_demand, only: %i[show edit]
 
   def index
     @active = params[:query] ? params["query"] : "all"
