@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get'/demands', to: "pages#demands"
   get'/success', to: "demands#success_page", as: :success
 
+  resources :demands
+
   resources :homework_demands
   resources :social_demands
   resources :other_demands

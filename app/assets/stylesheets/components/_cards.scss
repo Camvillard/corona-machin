@@ -4,19 +4,28 @@
   background: $off-white;
   padding: 8px 8px 16px;
   border-radius: $small-radius;
+  color: $dark-gray;
   position: relative;
+
+  .need-card-icon {
+    margin-top: 5px;
+    margin-right: 10px;
+    
+  }
+
+  .need-card-demander {
+    margin-left: 10px;
+  }
+
   .need-tag {
+    background-color: $dark-green;
+    color: $off-white;
+    margin-top: 10px;
+    padding: 4px 4px;
+    border-radius: 5%;
     position: absolute;
     top: 8px;
     right: 8px;
-  }
-}
-
-.need-card-title {
-  display: flex;
-  p {
-    padding-top: 3px;
-    padding-left: 15px;
   }
 }
 
