@@ -4,9 +4,14 @@
       <h1 class="page-title light">bien reçu !</h1>
     </div>
     <div class="green-box">
-      <p>votre demande a été créée avec succès !</p>
-      <p>vous serez avisé(e) par courriel dès que quelqu’un peut s’en charger.
-        d’ici là, restez à la maison et prenez bien soin de vous.</p>
+      <% if params[:location] === "offer" %>
+        <%= render "shared/success-page/offer.html.erb" %>
+      <% elsif params[:location] === "errand"  %>
+        <%= render "shared/success-page/demand" %>
+      <% else %>
+
+      <% end %>
+
     </div>
   </div>
 </div>

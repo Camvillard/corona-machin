@@ -1,4 +1,6 @@
 <div class="container">
+
+
   <% @demands.each do |demand| %>
     <%= link_to "#" do %>
       <%= render "shared/card", need: demand %>
@@ -11,4 +13,4 @@
     <img src="https://source.unsplash.com/random" alt="" />
   </div>
 </div>
-<%= javascript_pack_tag "map" %> 
+<%= javascript_pack_tag "map" %>

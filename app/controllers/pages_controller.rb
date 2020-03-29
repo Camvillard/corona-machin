@@ -12,7 +12,11 @@ class PagesController < ApplicationController
   end
 
   def demands
-    @demands = Demand.all
+    if params[:query] == "errands"
+      @demands = Demand.where(need_type: "ErrandDemand")
+    else
+      @demands = Demand.all
+    end
   end
 
 end
