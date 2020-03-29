@@ -1,0 +1,10 @@
+.sort-nav-bar {
+  .option {
+  color: $gray;
+
+  }
+  .active{
+    color: $dark-gray;
+    text-decoration: underline;
+  }
+}

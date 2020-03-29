@@ -14,9 +14,11 @@
       <h4 class="demand-show-demander">
         <%= @demand.name %>
       </h4>
+      <% if @demand.need_type === "ErrandDemand" %>
+        <p>adress: <%= @demand.need.address %></p>
+      <% end %>
       <p >phone: <%= @demand.phone %></p>
       <p>email: <%= @demand.email %></p>
-      <!-- <p>status: <%= @demand.status %></p> -->
     </div>
     <% if @list %>
       <div class="demand-show-list-items">
@@ -41,7 +43,8 @@
   </div>
 </div>
 <div class="demand-show-button">
-  <%= link_to "je m'en occupe", '#', class: "button button-block button-plain" %>
+  <%= link_to "je m'en occupe", '#', 
+    class: "button button-block button-plain" %>
 </div>
 
 

@@ -2,13 +2,17 @@ class DemandsController < ApplicationController
   before_action :find_demand, only: %i[show]
 
   def index
-    @demands = Demand.all
-  end
+    @active = params[:query] ? params["query"] : "all"
+    if params["query"] == "all" || params[:query].nil?
+      @demands = Demand.all
+    else
+      @demands = Demand.where(need_type: params["query"])
+    end
+end
 
   def show
-    Demand.find(20).need_type === "ErrandDemand"
     if @demand.need_type === "ErrandDemand"
-      @list = find_list(@demand)
+      @list = @demand.need.list
       @items = @list.items
     end
   end
@@ -24,15 +28,7 @@ class DemandsController < ApplicationController
   end
 
   private
-
-  def find_demand
-    @demand = Demand.find(params[:id])
-  end
-
-  def find_list(demand)
-    Demand
-      .find(demand.id)
-      .need
-      .list
-  end
+    def find_demand
+      @demand = Demand.find(params[:id])
+    end
 end
