@@ -32,6 +32,10 @@
   }
 }
 
+#map {
+  height: calc(90vh - 48px);
+}
+
 .marker-map {
   background: $light-gray;
   padding: 8px;

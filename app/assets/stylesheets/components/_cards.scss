@@ -6,11 +6,11 @@
   border-radius: $small-radius;
   color: $dark-gray;
   position: relative;
+  margin: 16px 0;
 
   .need-card-icon {
     margin-top: 5px;
     margin-right: 10px;
-    
   }
 
   .need-card-demander {
@@ -20,9 +20,8 @@
   .need-tag {
     background-color: $dark-green;
     color: $off-white;
-    margin-top: 10px;
-    padding: 4px 4px;
-    border-radius: 5%;
+    padding: 2px 8px 4px;
+    border-radius: $medium-radius;
     position: absolute;
     top: 8px;
     right: 8px;
@@ -30,8 +29,8 @@
 }
 
 .need-author {
-  font-size: 1.8rem;
-  margin-bottom: 4px;
+  font-size: 1.6rem;
+  margin-bottom: 0;
 }
 
 .need-distance {
