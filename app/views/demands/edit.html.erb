@@ -1,0 +1,63 @@
+<div class="page-wrapper">
+
+  <div class="container">
+    <h1 class="page-title">prise en charge de la demande</h1>
+
+    <div class="demand-info-box">
+      <h3 class="demand-title"><%= @demand.title %></h3>
+      <p class="demand-info"><%= @demand.name %></p>
+      <p class="demand-info"><%= @demand.email if @demand.email %></p>
+      <p class="demand-info"><%= @demand.phone if @demand.phone %></p>
+      <p class="demand-info"><%= @demand.message %></p>
+    </div>
+
+    <% if @demand.need_type == "ErrandDemand" %>
+      <%= render "shared/take-errand-demand", demand: @demand %>
+    <% elsif @demand.need_type == "HomeworkDemand" %>
+      <%= render "shared/take-homework-demand", demand: @demand %>
+    <% elsif @demand.need_type == "SocialDemand" %>
+      <%= render "shared/take-social-demand", demand: @demand %>
+    <% elsif @demand.need_type == "OtherDemand" %>
+      <%= render "shared/take-other-demand", demand: @demand %>
+    <% end %>
+
+    <button data-target="#modal-finish" data-toggle="modal" class="button button-block button-plain button-large">
+      c'est fini !
+    </button>
+
+  </div>
+</div>
+
+<aside class="hide" id="modal-finish" tab-index="-1" role="dialog">
+
+  <div class="modal-container">
+    <div class="modal-content">
+      <h3 class="modal-title">merci pour micheline</h3>
+      <div class="modal-body">
+
+        <p class="modal-text">Voici l’adresse où lui livrer le tout :</p>
+        <p class="modal-demand-info">
+          7337 avenue de Chateaubriand, H2H 2L7 Montréal
+        </p>
+        <p class="modal-text">Voici le contact qu’il/elle a indiqué :</p>
+        <p class="modal-demand-info">
+          coucou@micheline.com
+        </p>
+
+        <p class="modal-text">
+          N’oubliez pas de lui envoyer une petit mot pour le/la prévenir que vous êtes en route, et gardez bien le reçu de caisse !
+        </p>
+      </div>
+      <div class="model-footer">
+        <div class="button-block">
+          <%= link_to "c'est fait", success_path(location: "offer"), class: "button button-light medium" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</aside>
+
+<%= javascript_pack_tag "forms" %>
+<%= javascript_pack_tag "modal" %>

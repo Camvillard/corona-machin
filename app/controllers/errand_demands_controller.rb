@@ -14,7 +14,7 @@ class ErrandDemandsController < ApplicationController
     @need = create_generic_demand(@errand)
     convertItemsList(params["item"], @errand)
     if @need.save!
-      redirect_to success_path(location: "errand")
+      redirect_to success_path(location: "demand")
     else
       render :new
     end

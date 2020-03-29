@@ -1,6 +1,6 @@
 class DemandsController < ApplicationController
   before_action :find_demand, only: %i[show]
-  
+
   def index
     @demands = Demand.all
   end
@@ -14,19 +14,25 @@ class DemandsController < ApplicationController
   end
 
   def success_page
+  end
+
+  def edit
+  end
+
+  def update
 
   end
 
   private
 
-    def find_demand
-      @demand = Demand.find(params[:id])
-    end
+  def find_demand
+    @demand = Demand.find(params[:id])
+  end
 
-    def find_list(demand)
-      Demand
-        .find(demand.id)
-        .need
-        .list
-    end
+  def find_list(demand)
+    Demand
+      .find(demand.id)
+      .need
+      .list
+  end
 end

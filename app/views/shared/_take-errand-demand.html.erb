@@ -1,0 +1,16 @@
+<div class="errand-demand-list">
+
+  <div class="demand-info-box">
+    <p class="info-title">à livrer au :</p>
+    <p class="demand-info"> <%= @demand.need.address %></p>
+
+  </div>
+
+  <% @demand.need.items.each do |item| %>
+  <div class="checkbox-group">
+    <input type="checkbox" id="<%= item.id %>" >
+    <label for="#<%= item.id %>"><%= item.name %> - <%= item.detail %></label>
+  </div>
+  <% end %>
+
+</div>
