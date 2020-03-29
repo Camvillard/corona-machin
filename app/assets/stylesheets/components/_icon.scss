@@ -1,7 +1,11 @@
 .icon-need-type {
   color: $off-white;
   align-items: center;
-  padding: 7px 7px 7px;
   border-radius: 50%;
   background-color: $green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
 }
