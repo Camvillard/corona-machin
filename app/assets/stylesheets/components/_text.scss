@@ -1,5 +1,9 @@
 .page-title {
+  margin-top: 52px;
   margin-bottom: 1em;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: $gray;
   &.dark {
     color: $dark-green;
   }

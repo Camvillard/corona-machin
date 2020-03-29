@@ -1,10 +1,12 @@
 .button {
   font-weight: 800;
   transition: 0.3s;
+  background: none;
+  border: none;
+  font-family: $body-font;
 }
 
 .button-plain {
-  border: none;
   background: $green;
   color: $dark-gray;
   padding: 12px;
@@ -17,6 +19,7 @@
 .button-light {
   color: $dark-gray;
   border-bottom: 3px solid $dark-gray;
+  padding: 0;
   padding-bottom: 4px;
 
   &.medium {

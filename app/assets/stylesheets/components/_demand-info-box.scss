@@ -1,0 +1,19 @@
+.demand-info-box {
+  margin: 8px 0;
+
+  .demand-title {
+    color: $dark-green;
+  }
+
+  .demand-info {
+    margin: 0.2em 0;
+  }
+
+  .info-title {
+    font-weight: 600;
+    color: $green;
+    font-size: .85em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+}

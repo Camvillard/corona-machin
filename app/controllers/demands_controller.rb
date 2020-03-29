@@ -1,6 +1,6 @@
 class DemandsController < ApplicationController
   before_action :find_demand, only: %i[show]
-  
+
   def index
     @active = params[:query] ? params["query"] : "all"
     if params["query"] == "all" || params[:query].nil?
@@ -18,11 +18,16 @@ end
   end
 
   def success_page
+  end
+
+  def edit
+  end
+
+  def update
 
   end
 
   private
-
     def find_demand
       @demand = Demand.find(params[:id])
     end

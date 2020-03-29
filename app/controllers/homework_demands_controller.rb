@@ -14,7 +14,7 @@ class HomeworkDemandsController < ApplicationController
     @need = create_generic_demand(@homework)
 
     if @need.save!
-      redirect_to success_path(location: "homework")
+      redirect_to success_path(location: "demand")
     else
       render :new
     end
