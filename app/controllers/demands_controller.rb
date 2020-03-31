@@ -20,8 +20,11 @@ end
   def success_page
   end
 
-  def edit
+  def take_a_demand
+    raise
   end
+
+  def edit; end
 
   def update
 

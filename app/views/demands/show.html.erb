@@ -24,7 +24,7 @@
       <div class="demand-show-list-items">
         <div class="need-card-title">
           <h4 class="need-author">
-            List de course
+            Liste de course
           </h4>
         </div>
         <% @items.each do |item| %>
@@ -40,12 +40,54 @@
       </div>
       <p><%= @demand.message %></p>
     </div>
+    <button data-target="#modal-finish" data-toggle="modal" class="button button-block button-plain button-large">
+    je prends
+    </button>
+    <%= link_to "je m'en occupe", edit_demand_path(@demand), class: "button button-block button-plain" %>
   </div>
 </div>
-<div class="demand-show-button">
-  <%= link_to "je m'en occupe", edit_demand_path(@demand), 
-    class: "button button-block button-plain" %>
-</div>
+
+<aside class="hide" id="modal-finish" tab-index="-1" role="dialog">
+
+  <div class="modal-container">
+    <div class="modal-content">
+      <h3 class="modal-title">merci pour micheline</h3>
+      <div class="modal-body">
+
+        <p class="modal-text">Afin de pouvoir vous laisser vous organiser entre vous, nous allons vous envoyer un courriel pour récapituler le tout.</p>
+        <p class="modal-demand-info">
+          7337 avenue de Chateaubriand, H2H 2L7 Montréal
+        </p>
+        <p class="modal-text">Voici le contact qu’il/elle a indiqué :</p>
+        <p class="modal-demand-info">
+          coucou@micheline.com
+        </p>
+
+        <p class="modal-text">
+          <%= simple_form_for @demand do |f| %>
+          <%= f.input :taker_email %>
+          <%= f.submit "je prends" %>
+        <% end %>
+          <form action="/take_demand" method="post">
+          <div class="form-group">
+            <label for="">adresse courriel :</label>
+            <input type="text" placeholder="email">
+
+          </div>
+          <input type="submit" value="c'est fait" class="button button-light medium">
+        </form>
+        </p>
+      </div>
+      <div class="model-footer">
+
+      </div>
+
+    </div>
+  </div>
+
+</aside>
+
+<%= javascript_pack_tag "modal" %>
 
 
 

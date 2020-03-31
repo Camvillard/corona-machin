@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get '/choices', to: "pages#choices"
 
   resources :demands
-  get'/demands', to: "pages#demands"
-  get'/success', to: "demands#success_page", as: :success
+  get '/demands', to: "pages#demands"
+  get '/success', to: "demands#success_page", as: :success
+  post '/take_demand', to: "demands#take_a_demand", as: :take_demand
 
   resources :demands
 
