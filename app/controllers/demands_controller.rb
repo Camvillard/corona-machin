@@ -24,7 +24,9 @@ end
     raise
   end
 
-  def edit; end
+  def edit
+    raise
+  end
 
   def update
 

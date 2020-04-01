@@ -1,60 +1,74 @@
 <div class="page-wrapper">
-  <div class="container">
-    <div class="demand-show-status">
-      <div class="demand-show-tag">
-        <%= @demand.tag.name %>
+  <div class="container min-height">
+
+    <div class="need-details-card">
+
+      <div class="need-details-header">
+        <h4 class="need-details-demander">
+          <%= @demand.name %>
+        </h4>
+        <span class="need-details-tag"><%= @demand.tag.name %></span>
       </div>
-    </div>
-    <div class="need-card-title">
-      <h4 class="need-author">
+      <h3 class="need-details-title">
         <%= @demand.title %>
-      </h4>
-    </div>
-    <div class="demand-show-infos">
-      <h4 class="demand-show-demander">
-        <%= @demand.name %>
-      </h4>
-      <% if @demand.need_type === "ErrandDemand" %>
-        <p>adress: <%= @demand.need.address %></p>
-      <% end %>
-      <p >phone: <%= @demand.phone %></p>
-      <p>email: <%= @demand.email %></p>
-    </div>
-    <% if @list %>
+      </h3>
+
+      <div class="need-details-infos">
+        <% if @demand.need_type === "ErrandDemand" %>
+        <p><%= @demand.need.address %></p>
+        <% end %>
+        <p><%= @demand.phone %></p>
+        <p><%= @demand.email %></p>
+      </div>
+
+      <% if @list %>
       <div class="demand-show-list-items">
         <div class="need-card-title">
           <h4 class="need-author">
-            Liste de course
+            Liste d'épicerie
           </h4>
         </div>
         <% @items.each do |item| %>
-          <p><%= item.name %> - <%= item.detail %></p>
+        <p><%= item.name %> - <%= item.detail %></p>
         <% end %>
       </div>
-    <% end %>
-    <div class="demand-show-message">
-      <div class="need-card-title">
-        <h4 class="need-author">
-          message
-        </h4>
+      <% end %>
+
+      <div class="demand-show-message">
+          <h4 class="need-author">
+            message
+          </h4>
+        <p><%= @demand.message %></p>
       </div>
-      <p><%= @demand.message %></p>
+
+      <p>lore</p>
     </div>
-    <button data-target="#modal-finish" data-toggle="modal" class="button button-block button-plain button-large">
-    je prends
+
+
+
+
+    <button
+      data-target="#modal-finish"
+      data-toggle="modal"
+      class="button button-block button-plain button-fullwidth"
+    >
+      je m'en occupe !
     </button>
-    <%= link_to "je m'en occupe", edit_demand_path(@demand), class: "button button-block button-plain" %>
   </div>
+
 </div>
 
-<aside class="hide" id="modal-finish" tab-index="-1" role="dialog">
+<!-- modal -->
 
+<aside class="hide" id="modal-finish" tab-index="-1" role="dialog">
   <div class="modal-container">
     <div class="modal-content">
       <h3 class="modal-title">merci pour micheline</h3>
       <div class="modal-body">
-
-        <p class="modal-text">Afin de pouvoir vous laisser vous organiser entre vous, nous allons vous envoyer un courriel pour récapituler le tout.</p>
+        <p class="modal-text">
+          Afin de pouvoir vous laisser vous organiser entre vous, nous allons
+          vous envoyer un courriel pour récapituler le tout.
+        </p>
         <p class="modal-demand-info">
           7337 avenue de Chateaubriand, H2H 2L7 Montréal
         </p>
@@ -64,30 +78,18 @@
         </p>
 
         <p class="modal-text">
-          <%= simple_form_for @demand do |f| %>
-          <%= f.input :taker_email %>
-          <%= f.submit "je prends" %>
-        <% end %>
-          <form action="/take_demand" method="post">
-          <div class="form-group">
-            <label for="">adresse courriel :</label>
-            <input type="text" placeholder="email">
-
-          </div>
-          <input type="submit" value="c'est fait" class="button button-light medium">
-        </form>
+          <%= form_with(url: "/take_demand", method: "post") do %>
+            <div class="form-group">
+              <%= label_tag(:taker_demand, "votre courriel :") %>
+              <%= text_field_tag(:taker_demand) %>
+            </div>
+            <%= submit_tag("envoyer", class: "button button-light medium")  %>
+          <% end %>
         </p>
       </div>
-      <div class="model-footer">
-
-      </div>
-
+      <div class="model-footer"></div>
     </div>
   </div>
-
 </aside>
 
 <%= javascript_pack_tag "modal" %>
-
-
-
