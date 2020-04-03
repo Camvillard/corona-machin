@@ -1,29 +1,34 @@
 {
   "editor.formatOnSave": false,
+  "editor.tabSize": 2,
   "[html]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-},
-"[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-},
-"[typescriptreact]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-},
-"[javascript]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-},
-"[javascriptreact]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-},
-"[markdown]": {
-    "editor.formatOnSave": true,
-    "editor.wordWrap": "on",
-    "editor.renderWhitespace": "all",
-    "editor.acceptSuggestionOnEnter": "off"
-}
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "on",
+        "editor.renderWhitespace": "all",
+        "editor.acceptSuggestionOnEnter": "off"
+    }
 }

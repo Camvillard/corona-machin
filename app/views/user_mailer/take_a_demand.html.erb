@@ -1,4 +1,14 @@
-<h1>User#take_a_demand</h1>
+<div class="mail-container">
 
-<p>
-</p>
+  <h1>merci beaucoup</h1>
+
+  voilà le récapitulatif de la demande !
+
+  <div>
+    <p> <%= @demand.title %> </p>
+    <p> <%= @demand.name %> </p>
+    <p> <%= @demand.need.address if @demand.need_type == "ErrandDemand" %> </p>
+  </div>
+
+</div>
+

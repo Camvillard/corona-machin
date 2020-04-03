@@ -3,6 +3,10 @@
 
     <div class="need-details-card">
 
+      <div class="icon-need-type">
+        <%= render "shared/need-icon.html.erb", need: @demand %>
+      </div>
+
       <div class="need-details-header">
         <h4 class="need-details-demander">
           <%= @demand.name %>
@@ -35,13 +39,12 @@
       <% end %>
 
       <div class="demand-show-message">
-          <h4 class="need-author">
-            message
-          </h4>
+        <h4 class="need-author">
+          message
+        </h4>
         <p><%= @demand.message %></p>
       </div>
 
-      <p>lore</p>
     </div>
 
 
@@ -50,7 +53,7 @@
     <button
       data-target="#modal-finish"
       data-toggle="modal"
-      class="button button-block button-plain button-fullwidth"
+      class="button button-block button-plain button-fullwidth bottom-sticky"
     >
       je m'en occupe !
     </button>
@@ -78,7 +81,7 @@
         </p>
 
         <p class="modal-text">
-          <%= form_with(url: "/take_demand", method: "post") do %>
+          <%= form_with(url: "/demands/#{@demand.id}/take_demand", method: "post") do %>
             <div class="form-group">
               <%= label_tag(:taker_demand, "votre courriel :") %>
               <%= text_field_tag(:taker_demand) %>

@@ -7,7 +7,6 @@
   width: 90vw;
   max-width: 724px;
   margin: 0 auto;
-  padding: 24px 0;
   &.no-padding-top {
     padding-top: 0;
   }
@@ -26,4 +25,9 @@
 
 .min-height {
   min-height: calc(100vh - 95px);
+}
+
+.bottom-sticky {
+  position: sticky;
+  bottom: 24px;
 }
