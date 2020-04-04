@@ -9,19 +9,7 @@ mapToggle.addEventListener("click", () => {
   mapContainer.classList.toggle("open");
 });
 
-const mapboxApi = mapElement.dataset.mapboxApiKey;
 const allDemands = JSON.parse(mapElement.dataset.demands);
-console.log("demands", allDemands);
-
-const allAddresses = allDemands.filter((demand) => demand.address);
-
-console.log("adresses", allAddresses);
-
-const convertAllAddressesInGeocoded = (addresses) => {
-  console.log("sfdc", addresses);
-
-  return addresses.map((address) => convertAddressInCoordinates(address));
-};
 
 const convertAddressInCoordinates = (address) => {
   const token =
@@ -35,19 +23,36 @@ const convertAddressInCoordinates = (address) => {
   return data;
 };
 
+const getUsergeolocation = () => {
+  return navigator.geolocation.getCurrentPosition(
+    (e) => {
+      const lng = e.coords.longitude;
+      const lat = e.coords.latitude;
+      return [lng, lat];
+    },
+    () => console.log("error")
+  );
+};
+
+const location = getUsergeolocation();
+
 const initMapbox = () => {
   mapboxgl.accessToken =
     "pk.eyJ1IjoiY2FtdmlsbGFyZCIsImEiOiJjazhkamkyY2QwdjBuM210N2txbHk2YmZhIn0.KRmSud_67BKoDUanEAWIMw";
   const map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/mapbox/streets-v11",
-    center: [-77.04, 38.907],
+    center: [-73.6106935, 45.5375804],
     zoom: 11.15,
   });
 
-  convertAllAddressesInGeocoded(allAdresses).then((response) =>
-    console.log("res", response)
-  );
+  allDemands.map((address) => {
+    return convertAddressInCoordinates(address.address).then((r) => {
+      const [lng, lat] = r.data.features[0].geometry.coordinates;
+      const popup = new mapboxgl.Popup().setHTML(address.infoWindow);
+      new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
+    });
+  });
 };
 
 if (mapElement) {
