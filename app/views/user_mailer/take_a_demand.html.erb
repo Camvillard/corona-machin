@@ -1,0 +1,70 @@
+<div class="mail-container">
+
+  <%= @demand.need_type %>
+
+  <h1><span>merci beaucoup.</span></h1>
+
+  <h4>Voici le récapitulatif de la demande pour laquelle vous vous êtes portés volontaire.</h4>
+
+  <div class="mail-demand-wrapper">
+    <h3><%= @demand.title %></h3>
+    <p class="label">demande envoyée par : </p>
+    <p class="info"><%= @demand.name %></p>
+    <p class="label">que vous pouvez joindre au : </p>
+    <p class="info"><%= @demand.phone if @demand.phone %></p>
+    <p class="info"><%= @demand.email if @demand.email %></p>
+
+
+    <% if @demand.need_type == "ErrandDemand" %>
+    <p class="label">l'épicerie sera à déposer devant le :</p>
+    <p class="info"><%= @demand.need.address%></p>
+    <div class="groceries">
+      <p class="label">la liste de courses :</p>
+      <% @demand.need.items.each do |item| %>
+      <div class="checkbox-group">
+        <input type="checkbox" id="<%= item.id %>" >
+        <label for="#<%= item.id %>"><%= item.name %> - <%= item.detail %></label>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <% if @demand.need_type == "SocialDemand" %>
+      <p class="label">récurrence souhaitée :</p>
+      <p class="info"><%= @demand.need.recurrence %></p>
+    <% end %>
+
+    <% if @demand.need_type == "HomeworkDemand" %>
+      <p class="label">dans la matière suivante :</p>
+      <p class="info"><%= @demand.need.matiere %></p>
+      <p class="label">récurrence souhaitée :</p>
+      <p class="info"><%= @demand.need.recurrence %></p>
+    <% end %>
+
+
+    <p class="label">message : </p>
+    <p class="info"><%= @demand.message %></p>
+  </div>
+
+  <div class="mail-info-box">
+    <h3>avant de terminer...</h3>
+    <p>Merci beaucoup d'avoir donné un peu de votre temps. Comme on dit, le karma vous le revaudra.</p>
+    <p> N'oubliez pas les gestes barrières, pour vous protéger, ainsi que la personne à qui vous rendez service. Si vous voulez vous rafraichir la mémoire à propos de ces gestes,
+      <%= link_to "c'est par ici !", safety_url(only_path: true), class: "text-link" %></p>
+  </div>
+
+</div>
+
+<script>
+  const checkBoxes = document.querySelectorAll(".checkbox-group");
+
+  checkBoxes.forEach(check => {
+    const input = check.querySelector("input");
+    const label = check.querySelector("label");
+
+    input.addEventListener("click", () => {
+      label.classList.toggle("active-label");
+    });
+  });
+
+</script>

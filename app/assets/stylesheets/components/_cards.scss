@@ -14,7 +14,10 @@
   }
 
   .need-card-demander {
-    margin-left: 10px;
+    margin-left: 8px;
+    padding-top: 6px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
   }
 
   .need-tag {
@@ -26,14 +29,76 @@
     top: 8px;
     right: 8px;
   }
+
+  .need-card-header {
+    margin-top: -18px;
+  }
+
+  .need-title {
+    font-size: 1.6rem;
+    margin-bottom: 0;
+  }
+
+  .need-distance {
+    color: $medium-gray;
+    margin-top: 0;
+  }
 }
 
-.need-author {
-  font-size: 1.6rem;
-  margin-bottom: 0;
+.need-details-card {
+  border: 3px solid $green;
+  position: relative;
+  padding: 16px;
+
+  .icon-need-type {
+    margin-top: -32px;
+    margin-bottom: 16px;
+  }
+
+
+  .need-details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .need-details-demander {
+    color: $medium-gray;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 0;
+    flex-shrink: 1;
+    word-break: break-word;
+    max-width: 70%;
+    font-size: 1.2rem;
+  }
+
+  .need-details-tag {
+    word-break: keep-all;
+    background: $dark-green;
+    color: $off-white;
+    padding: 4px 8px;
+    border-radius: $medium-radius;
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .need-details-status {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .need-details-title {
+    font-size: 1.8rem;
+  }
+
+  .need-details-infos {
+    color: $gray;
+    margin: 24px 0;
+    p {
+      margin: 4px 0;
+    }
+  }
+
 }
 
-.need-distance {
-  color: $medium-gray;
-  margin-top: 0;
-}

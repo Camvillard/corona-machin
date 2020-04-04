@@ -1,16 +1,14 @@
 <div class="need-card">
-  
-  <div class="need-card-title flexbox-container">  
+  <div class="need-card-header flexbox-container">
     <div class="icon-need-type">
       <%= render "shared/need-icon.html.erb", need: need %>
     </div>
     <p class="need-card-demander"><%= need.name[0..15] %></p>
     <span class="need-tag"><%= need.tag.name %></span>
-</div>
-  
-  
-  <h4 class="need-author"><%= need.title %></h4>
-  <p class="need-distance"> à 5km de distance</p>
+  </div>
+
+  <h4 class="need-title"><%= need.title %></h4>
+  <p class="need-distance">à 5km de distance</p>
   <div class="flexbox-container j-end ">
     <span class="button button-light medium ">voir sa demande</span>
   </div>

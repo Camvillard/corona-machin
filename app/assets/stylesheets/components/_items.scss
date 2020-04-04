@@ -14,8 +14,8 @@
     background: $dark-green;
     font-size: 2rem;
     padding-bottom: 2px;
-    width: 34px;
-    height: 34px;
+    width: 38px;
+    height: 38px;
     margin: 0;
   }
 
@@ -39,16 +39,19 @@
 }
 
 .add-item-input-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100vw;
   padding-right: 8px;
   padding-left: 5vw;
   background: $dark-green;
   border: none;
   color: $off-white;
-  height: 34px;
+  height: 38px;
+
+  &.open {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
 
   input[type="submit"] {
     color: $off-white;
@@ -64,7 +67,7 @@
   color: $off-white;
   border: none;
   border-bottom: 1px solid $off-white;
-  margin-right: 4vw;
+  margin-right: 16px;
 
   &::placeholder {
     color: $gray;
@@ -72,13 +75,12 @@
 }
 
 .add-item-input {
-  flex-grow: 1;
-  width: 100%;
+  width: 50%;
+  flex: 1 0 50%;
 }
 
 .quantity-item-input {
-  flex-shrink: 1;
-  width: 20%;
+  flex: 0 1 80px;
   min-width: 80px;
 }
 .add-item-input:focus,

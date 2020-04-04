@@ -26,10 +26,8 @@
 
     <div class="form-group">
       <label for="#list">ma liste de courses :</label>
-      <div class="list-items-container">
-      </div>
+      <div class="list-items-container"></div>
     </div>
-
   </div>
 
   <div class="add-item-container">
@@ -55,7 +53,6 @@
   </div>
 
   <div class="container no-padding-top">
-
     <div class="form-group">
       <label for="#contact-email">adresse courriel :</label>
       <input
@@ -91,44 +88,49 @@
     </div>
     <div class="form-group">
       <label for="#message">au besoin, vous pouvez ajouter un message :</label>
-      <textarea
-        name="message"
-        id="message"
-        class="for-hidden-input">
+      <textarea name="message" id="message" class="for-hidden-input">
       </textarea>
     </div>
 
-
     <div class="form-group">
       <label for="#tag">j'en ai besoin :</label>
-      <select
-        name="tag"
-        id="tag"
-        class="for-hidden-input select-container"
-      >
+      <select name="tag" id="tag" class="for-hidden-input select-container">
         <%= Tag.all.each do |tag| %>
-          <option value="<%= tag.name %>">
-            <%= tag.name %>
-          </option>
+        <option value="<%= tag.name %>">
+          <%= tag.name %>
+        </option>
         <% end %>
       </select>
     </div>
 
     <%= simple_form_for @errand do |f| %>
-      <input type="hidden" name="title" id="hidden-title" class="hidden-input">
-      <input type="hidden" name="name" id="hidden-name" class="hidden-input">
-      <input type="hidden" name="email" id="hidden-email" class="hidden-input">
-      <input type="hidden" name="phone" id="hidden-phone" class="hidden-input">
-      <input type="hidden" name="address" id="hidden-address" class="hidden-input">
-      <input type="hidden" name="message" id="hidden-message" class="hidden-input">
-      <input type="hidden" name="tag" id="hidden-tag" class="hidden-input">
-      <input type="hidden" name="item" id="hidden-item" class="hidden-item-input">
-      <%= f.submit "envoyer ma demande", class: "button button-plain button-fullwidth" %>
-    <% end %>
+    <input type="hidden" name="title" id="hidden-title" class="hidden-input" />
+    <input type="hidden" name="name" id="hidden-name" class="hidden-input" />
+    <input type="hidden" name="email" id="hidden-email" class="hidden-input" />
+    <input type="hidden" name="phone" id="hidden-phone" class="hidden-input" />
+    <input
+      type="hidden"
+      name="address"
+      id="hidden-address"
+      class="hidden-input"
+    />
+    <input
+      type="hidden"
+      name="message"
+      id="hidden-message"
+      class="hidden-input"
+    />
+    <input type="hidden" name="tag" id="hidden-tag" class="hidden-input" />
+    <input
+      type="hidden"
+      name="item"
+      id="hidden-item"
+      class="hidden-item-input"
+    />
+    <%= f.submit "envoyer ma demande", class: "button button-plain
+    button-fullwidth bottom-sticky" %> <% end %>
   </div>
 </div>
 
-
-<%= javascript_pack_tag 'new-demands' %>
-<%= javascript_pack_tag 'new-errand' %>
+<%= javascript_pack_tag 'new-demands' %> <%= javascript_pack_tag 'new-errand' %>
 <%= javascript_pack_tag "add-input" %>

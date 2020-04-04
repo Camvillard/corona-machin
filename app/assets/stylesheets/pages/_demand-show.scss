@@ -1,8 +1,9 @@
 .demand-show-status {
   display: flex;
   justify-content: flex-end;
+  position: relative;
+
   .demand-show-tag {
-    position: relative;
     top: 8px;
     right: 8px;
     background: $dark-green;
@@ -11,7 +12,6 @@
     border-radius: $medium-radius;
   }
 }
-
 
 .demand-show-infos {
   color: $gray;

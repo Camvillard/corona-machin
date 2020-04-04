@@ -1,12 +1,12 @@
 const allButtons = Array.from(document.querySelectorAll("button"));
 
-const modalTriggerButton = allButtons.find(
-  button => button.dataset.toggle === "modal"
-);
+const selectTriggerButton = buttons => {
+  return buttons.find(button => button.dataset.toggle === "modal");
+};
 
-const modalCloseButton = allButtons.find(
-  button => button.dataset.dismiss === "modal"
-);
+const selectCloseButton = buttons => {
+  return buttons.find(button => button.dataset.dismiss === "modal");
+};
 
 const triggerModal = modalTriggerButton => {
   const modalToOpen = document.querySelector(modalTriggerButton.dataset.target);
@@ -18,6 +18,19 @@ const closeModal = modalTriggerButton => {
   modalToOpen.classList.toggle("hide");
 };
 
-modalTriggerButton.addEventListener("click", () => {
-  triggerModal(modalTriggerButton);
-});
+const startModal = triggerButton => {
+  triggerButton.addEventListener("click", () => {
+    triggerModal(triggerButton);
+  });
+};
+
+const initModal = buttons => {
+  if (!buttons) {
+    return;
+  }
+  const triggerButton = selectTriggerButton(buttons);
+  const closeButton = selectCloseButton(buttons);
+  startModal(triggerButton);
+};
+
+initModal(allButtons);
