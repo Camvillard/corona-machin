@@ -2,13 +2,13 @@
 
 puts 'Cleaning database...'
 
+Item.destroy_all
+List.destroy_all
 Demand.destroy_all
 OtherDemand.destroy_all
 HomeworkDemand.destroy_all
 ErrandDemand.destroy_all
 SocialDemand.destroy_all
-Item.destroy_all
-List.destroy_all
 Tag.destroy_all
 
 
