@@ -11,7 +11,7 @@ class ErrandDemandsController < ApplicationController
       address: params[:address]
     )
     if !@errand.save
-      render :new
+      return
     else
       @errand.update(list: List.new)
       @need = create_generic_demand(@errand)
