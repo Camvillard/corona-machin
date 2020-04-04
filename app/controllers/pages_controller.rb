@@ -10,4 +10,8 @@ class PagesController < ApplicationController
     step = "j'ai besoin d'aide"
     set_breadcrumbs(step)
   end
+
+  def safety_first
+
+  end
 end

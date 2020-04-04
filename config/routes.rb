@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   get 'styles', to: "pages#styles"
   get 'pages/styles', to: "pages#styles"
   get '/choices', to: "pages#choices"
-
-  resources :demands
   get '/demands', to: "pages#demands"
   get '/success', to: "demands#success_page", as: :success
+  get '/safety_first', to: "pages#safety_first", as: :safety
+
 
   resources :demands do
     post '/take_demand', to: "demands#take_a_demand", as: :take_demand
