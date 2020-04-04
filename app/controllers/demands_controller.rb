@@ -5,10 +5,12 @@ class DemandsController < ApplicationController
     @active = params[:query] ? params["query"] : "all"
     if params["query"] == "all" || params[:query].nil?
       @demands = Demand.all
+      @addresses = ErrandDemand.all
     else
       @demands = Demand.where(need_type: params["query"])
+      @addresses = ErrandDemand.all
     end
-end
+  end
 
   def show
     if @demand.need_type === "ErrandDemand"

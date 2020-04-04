@@ -26,7 +26,10 @@
   <div class="show-map-container close">
     <p class="show-map-title" id="map-toggle">afficher sur la carte</p>
     <div class="map-container">
-      <div id="map"></div>
+      <div
+        id="map"
+        data-demands="<%= @addresses.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
   </div>
   </div>
