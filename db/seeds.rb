@@ -32,6 +32,27 @@ end
 
 i = 1
 8.times do
+  cook_demand = CookDemand.new(
+    address: ADRESSES.sample,
+    recurrence: RECURRENCE.sample
+  )
+  
+  demand = Demand.new(
+    name: Faker::Movies::HarryPotter.character,
+    phone: Faker::PhoneNumber.cell_phone,
+    email: Faker::Internet.email,
+    message: MESSAGE.sample,
+    title: "title - #{i}",
+    need: cook_demand,
+    status: STATUS.sample,
+  )
+  demand.tag = Tag.all.sample
+  demand.save!
+  i+=1
+end
+
+i = 1
+8.times do
   other_need = OtherDemand.create!()
 
   demand = Demand.new(
