@@ -1,0 +1,121 @@
+<div class="page-wrapper">
+  <div class="container no-padding-bottom">
+    <h1 class="page-title dark">ajouter une demande</h1>
+
+    <div class="form-group">
+      <label for="#title">nom de la demande :</label>
+      <input
+        name="title"
+        class="for-hidden-input"
+        type="text"
+        placeholder="je ne comprends pas les intégrales"
+        id="title"
+      />
+    </div>
+
+    <div class="form-group validation-form">
+      <label for="#name">votre nom, prénom, surnom :</label>
+      <input
+        name="name"
+        class="for-hidden-input"
+        type="text"
+        placeholder="kevin, marie"
+        id="name"
+      />
+      <div class="error-message"></div>
+    </div>
+
+    <div class="form-group validation-form">
+      <label for="#contact-email">adresse courriel :</label>
+      <input
+        class="for-hidden-input"
+        type="text"
+        placeholder="adresse courriel ou numéro de téléphone"
+        id="contact-email"
+        name="email"
+      />
+      <div class="error-message"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="#contact-phone">en bonus, un numéro de téléphone :</label>
+      <input
+        class="for-hidden-input"
+        type="text"
+        placeholder="adresse courriel ou numéro de téléphone"
+        name="phone"
+        id="contact-phone"
+      />
+    </div>
+
+    <div class="form-group validation-form">
+      <label for="#address">adresse ou déposer le tout :</label>
+      <p class="input-tip">(seul le code postal sera publiquement indiqué)</p>
+      <input
+        name="address"
+        class="for-hidden-input"
+        type="text"
+        placeholder="5333 avenue Casgrain, suite 201, Montréal, H2T 1A3"
+        id="address"
+      />
+      <div class="error-message"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="#message">message :</label>
+      <textarea
+        name="message"
+        id="message"
+        class="for-hidden-input">
+      </textarea>
+    </div>
+
+    <div class="form-group validation-form">
+      <label for="#tag">j'en ai besoin :</label>
+      <select
+        name="tag"
+        id="tag"
+        class="for-hidden-input select-container"
+      >
+        <% Tag.all.each do |tag| %>
+          <option value="<%= tag.name %>">
+            <%= tag.name %>
+          </option>
+        <% end %>
+      </select>
+      <div class="error-message"></div>
+    </div>
+
+    <div class="form-group validation-form">
+      <label for="#recurrence">récurrence de la demande :</label>
+      <select
+        name="recurrence"
+        id="recurrence"
+        class="for-hidden-input select-container"
+      >
+        <% Demand::RECURRENCE.each do |recurrence| %>
+          <option value="<%= recurrence %>">
+            <%= recurrence %>
+          </option>
+        <% end %>
+      </select>
+      <div class="error-message"></div>
+    </div>
+
+    <%= simple_form_for @cook do |f| %>
+      <input type="hidden" name="title" id="hidden-title" class="hidden-input">
+      <input type="hidden" name="name" id="hidden-name" class="hidden-input">
+      <input type="hidden" name="email" id="hidden-email" class="hidden-input">
+      <input type="hidden" name="phone" id="hidden-phone" class="hidden-input">
+      <input type="hidden" name="address" id="hidden-address" class="hidden-input"/>
+      <input type="hidden" name="message" id="hidden-message" class="hidden-input">
+      <input type="hidden" name="tag" id="hidden-tag" class="hidden-input" value="urgent">
+      <input type="hidden" name="recurrence" id="hidden-recurrence" class="hidden-input" value="ponctuel">
+      <%= f.submit "envoyer ma demande", class: "button button-plain button-fullwidth", id: "submit-button" %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= javascript_pack_tag 'new-demands' %>
+<%= javascript_pack_tag "error-message" %>

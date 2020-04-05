@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :homework_demands
   resources :social_demands
+  resources :cook_demands
   resources :other_demands
 
   resources :errand_demands do
