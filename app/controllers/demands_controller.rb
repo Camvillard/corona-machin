@@ -5,10 +5,17 @@ class DemandsController < ApplicationController
     @active = params[:query] ? params["query"] : "all"
     if params["query"] == "all" || params[:query].nil?
       @demands = Demand.all
+      @addresses = ErrandDemand.all.map do |demand|
+        {
+          address: demand.address,
+          infoWindow: render_to_string(partial: "info_window", locals: { demand: Demand.find_by(need_id: demand.id) })
+        }
+      end
     else
       @demands = Demand.where(need_type: params["query"])
+      @addresses = ErrandDemand.all
     end
-end
+  end
 
   def show
     if @demand.need_type === "ErrandDemand"

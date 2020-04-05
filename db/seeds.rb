@@ -18,7 +18,14 @@ MESSAGE = ["Please deliver at home thanks", "Can you call me every day at 8PM", 
 RECURRENCE = ["ponctuel", "quotidien", "hebdomadaire"]
 MATIERE = ["lettres", "sciences", "langues", "histoire/géo", "autre"]
 
-
+ADRESSES = [
+  "7337 avenue de Chateaubriand, Montréal",
+  "5409 rue Chabot, Montréal",
+  "5807 ue St Urbain, Montréal",
+  "2256 rue De Lorimier, Montréal",
+  "5704 avenue du Parc, Montréal",
+  "r4388 rue St Denis, Montréal",
+]
 TAGS.each do |tag|
   Tag.create!(name: tag)
 end
@@ -83,7 +90,7 @@ end
 i = 1
 12.times do
   need = ErrandDemand.create!(
-    address: Faker::Address.full_address
+    address: ADRESSES.sample
   )
 
   demand = Demand.new(
