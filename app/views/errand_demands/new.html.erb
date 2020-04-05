@@ -13,7 +13,7 @@
       />
     </div>
 
-    <div class="form-group">
+    <div class="form-group validation-form">
       <label for="#name">votre nom, prénom, surnom :</label>
       <input
         name="name"
@@ -22,6 +22,7 @@
         placeholder="micheline, jean-jacques..."
         id="name"
       />
+      <div class="error-message"></div>
     </div>
 
     <div class="form-group">
@@ -53,7 +54,7 @@
   </div>
 
   <div class="container no-padding-top">
-    <div class="form-group">
+    <div class="form-group validation-form">
       <label for="#contact-email">adresse courriel :</label>
       <input
         class="for-hidden-input"
@@ -62,6 +63,7 @@
         id="contact-email"
         name="email"
       />
+      <div class="error-message"></div>
     </div>
 
     <div class="form-group">
@@ -75,7 +77,7 @@
       />
     </div>
 
-    <div class="form-group">
+    <div class="form-group validation-form">
       <label for="#address">adresse ou déposer le tout :</label>
       <p class="input-tip">(seul le code postal sera publiquement indiqué)</p>
       <input
@@ -85,6 +87,7 @@
         placeholder="5333 avenue Casgrain, suite 201, Montréal, H2T 1A3"
         id="address"
       />
+      <div class="error-message"></div>
     </div>
     <div class="form-group">
       <label for="#message">au besoin, vous pouvez ajouter un message :</label>
@@ -92,7 +95,7 @@
       </textarea>
     </div>
 
-    <div class="form-group">
+    <div class="form-group validation-form">
       <label for="#tag">j'en ai besoin :</label>
       <select name="tag" id="tag" class="for-hidden-input select-container">
         <%= Tag.all.each do |tag| %>
@@ -101,6 +104,7 @@
         </option>
         <% end %>
       </select>
+      <div class="error-message"></div>
     </div>
 
     <%= simple_form_for @errand do |f| %>
@@ -108,6 +112,7 @@
     <input type="hidden" name="name" id="hidden-name" class="hidden-input" />
     <input type="hidden" name="email" id="hidden-email" class="hidden-input" />
     <input type="hidden" name="phone" id="hidden-phone" class="hidden-input" />
+    <input type="hidden" name="tag" id="hidden-tag" class="hidden-input" value="urgent">
     <input
       type="hidden"
       name="address"
@@ -128,9 +133,11 @@
       class="hidden-item-input"
     />
     <%= f.submit "envoyer ma demande", class: "button button-plain
-    button-fullwidth bottom-sticky" %> <% end %>
+    button-fullwidth bottom-sticky", id: "submit-button" %> <% end %>
   </div>
 </div>
 
-<%= javascript_pack_tag 'new-demands' %> <%= javascript_pack_tag 'new-errand' %>
+<%= javascript_pack_tag 'new-demands' %> 
+<%= javascript_pack_tag 'new-errand' %>
 <%= javascript_pack_tag "add-input" %>
+<%= javascript_pack_tag "error-message" %>

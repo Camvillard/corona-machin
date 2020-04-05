@@ -13,7 +13,7 @@
       />
     </div>
 
-    <div class="form-group">
+    <div class="form-group validation-form">
       <label for="#name">votre nom, prénom, surnom :</label>
       <input
         name="name"
@@ -22,9 +22,10 @@
         placeholder="kevin, marie"
         id="name"
       />
+      <div class="error-message"></div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group validation-form">
       <label for="#contact-email">adresse courriel :</label>
       <input
         class="for-hidden-input"
@@ -33,6 +34,7 @@
         id="contact-email"
         name="email"
       />
+      <div class="error-message"></div>
     </div>
 
     <div class="form-group">
@@ -55,7 +57,7 @@
       </textarea>
     </div>
 
-    <div class="form-group">
+    <div class="form-group validation-form">
       <label for="#tag">j'en ai besoin :</label>
       <select
         name="tag"
@@ -68,6 +70,7 @@
           </option>
         <% end %>
       </select>
+      <div class="error-message"></div>
     </div>
 
     <%= simple_form_for @other do |f| %>
@@ -79,10 +82,11 @@
       <input type="hidden" name="tag" id="hidden-tag" class="hidden-input" value="urgent">
       <input type="hidden" name="matiere" id="hidden-matiere" class="hidden-input" value="sciences">
       <input type="hidden" name="recurrence" id="hidden-recurrence" class="hidden-input" value="ponctuel">
-      <%= f.submit "envoyer ma demande", class: "button button-plain button-fullwidth" %>
+      <%= f.submit "envoyer ma demande", class: "button button-plain button-fullwidth", id:"submit-button" %>
     <% end %>
   </div>
 </div>
 
 
 <%= javascript_pack_tag 'new-demands' %>
+<%= javascript_pack_tag "error-message" %>

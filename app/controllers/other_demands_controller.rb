@@ -4,13 +4,16 @@ class OtherDemandsController < ApplicationController
   end
 
   def create
-    @other = OtherDemand.create!()
+    @other = OtherDemand.new()
     @need = create_generic_demand(@other)
-
-    if @need.save!
-      redirect_to success_path(location: "demand")
+    if !@other.save
+      return
     else
-      render :new
+      if @need.save
+        redirect_to success_path(location: "demand")
+      else
+        return
+      end
     end
   end
 end

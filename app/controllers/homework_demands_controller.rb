@@ -7,18 +7,19 @@ class HomeworkDemandsController < ApplicationController
   end
 
   def create
-    @homework = HomeworkDemand.create!(
+    @homework = HomeworkDemand.new(
       matiere: params["matiere"],
       recurrence: params["recurrence"]
     )
-    @need = create_generic_demand(@homework)
-
-    if @need.save!
-      redirect_to success_path(location: "demand")
+    if !@homework.save
+      return
     else
-      render :new
+      @need = create_generic_demand(@homework)
+      if @need.save
+        redirect_to success_path(location: "demand")
+      else
+        return
+      end
     end
-
   end
-
 end

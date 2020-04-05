@@ -7,16 +7,20 @@ class ErrandDemandsController < ApplicationController
   end
 
   def create
-    @errand = ErrandDemand.create!(
+    @errand = ErrandDemand.new(
       address: params[:address]
     )
-    @errand.update(list: List.new)
-    @need = create_generic_demand(@errand)
-    convertItemsList(params["item"], @errand)
-    if @need.save!
-      redirect_to success_path(location: "demand")
+    if !@errand.save
+      return
     else
-      render :new
+      @errand.update(list: List.new)
+      @need = create_generic_demand(@errand)
+      convertItemsList(params["item"], @errand)
+      if @need.save!
+        redirect_to success_path(location: "demand")
+      else
+        render :new
+      end
     end
   end
 
