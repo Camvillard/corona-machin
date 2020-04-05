@@ -1,0 +1,2 @@
+class CookDemand < ApplicationRecord
+end
