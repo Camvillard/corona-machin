@@ -26,3 +26,14 @@
 .info-text {
   margin-top: 0.2em;
 }
+
+
+.link-text {
+  color: $dark-green;
+  transition: 0.3s;
+
+  &:hover {
+    color: $off-white;
+    background: $dark-green;
+  }
+}

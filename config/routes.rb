@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/choices', to: "pages#choices"
   get '/success', to: "demands#success_page", as: :success
   get '/safety_first', to: "pages#safety_first", as: :safety
+  get '/legal', to: "pages#legal", as: :legal
 
 
   resources :demands do
