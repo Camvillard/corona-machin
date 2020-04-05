@@ -2,8 +2,10 @@
   <%= render "shared/icons/homework.html.erb" %>
 <% elsif need.need_type === "ErrandDemand" %>
   <%= render "shared/icons/errand_demand.html.erb" %>
-<% elsif need.need_type = "SocialDemand" %>
+<% elsif need.need_type == "SocialDemand" %>
   <%= render "shared/icons/message.html.erb" %>
+<% elsif need.need_type == "CookDemand"%>
+  <%= render "shared/icons/cook_demand.html.erb" %>
 <% else %>
   <%= render "shared/icons/other-demand.html.erb" %>
 <% end %>
