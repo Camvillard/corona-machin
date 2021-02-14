@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     set_breadcrumbs(step)
   end
 
-  def safety_first
+  def safety_first; end
 
-  end
+  def legal; end
 end
